@@ -1,0 +1,18 @@
+{
+    "sourceFile": "routes/users.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1691513112609,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1691513112609,
+            "name": "Commit-0",
+            "content": "import express from \"express\";\r\nimport {\r\n  getUser,\r\n  getUserFriends,\r\n  addRemoveFriend,\r\n} from \"../controllers/users.js\";\r\nimport { verifyToken } from \"../middleware/auth.js\";\r\n\r\nconst router = express.Router();\r\n\r\n/* READ */\r\nrouter.get(\"/:id\", verifyToken, getUser);\r\nrouter.get(\"/:id/friends\", verifyToken, getUserFriends);\r\n\r\n/* UPDATE */\r\nrouter.patch(\"/:id/:friendId\", verifyToken, addRemoveFriend);\r\n\r\nexport default router;"
+        }
+    ]
+}

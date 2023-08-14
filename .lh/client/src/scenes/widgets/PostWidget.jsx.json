@@ -1,0 +1,238 @@
+{
+    "sourceFile": "client/src/scenes/widgets/PostWidget.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 55,
+            "patches": [
+                {
+                    "date": 1691997967472,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691997974589,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,18 @@\n import React from 'react'\r\n+import {\r\n+    ChatBubbleOutlineOutlined,\r\n+    FavoriteBorderOutlined,\r\n+    FavoriteOutlined,\r\n+    ShareOutlined,\r\n+  } from \"@mui/icons-material\";\r\n+  import { Box, Divider, IconButton, Typography, useTheme } from \"@mui/material\";\r\n+  import FlexBetween from \"components/FlexBetween\";\r\n+  import Friend from \"components/Friend\";\r\n+  import WidgetWrapper from \"components/WidgetWrapper\";\r\n+  import { useState } from \"react\";\r\n+  import { useDispatch, useSelector } from \"react-redux\";\r\n+  import { setPost } from \"state\";\r\n \r\n const PostWidget = () => {\r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1691997992557,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,17 @@\n   import { useState } from \"react\";\r\n   import { useDispatch, useSelector } from \"react-redux\";\r\n   import { setPost } from \"state\";\r\n \r\n-const PostWidget = () => {\r\n+const PostWidget = ({  postId,\r\n+    postUserId,\r\n+    name,\r\n+    description,\r\n+    location,\r\n+    picturePath,\r\n+    userPicturePath,\r\n+    likes,\r\n+    comments,}) => {\r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1691998008552,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,32 +1,41 @@\n-import React from 'react'\r\n+import React from \"react\";\r\n import {\r\n-    ChatBubbleOutlineOutlined,\r\n-    FavoriteBorderOutlined,\r\n-    FavoriteOutlined,\r\n-    ShareOutlined,\r\n-  } from \"@mui/icons-material\";\r\n-  import { Box, Divider, IconButton, Typography, useTheme } from \"@mui/material\";\r\n-  import FlexBetween from \"components/FlexBetween\";\r\n-  import Friend from \"components/Friend\";\r\n-  import WidgetWrapper from \"components/WidgetWrapper\";\r\n-  import { useState } from \"react\";\r\n-  import { useDispatch, useSelector } from \"react-redux\";\r\n-  import { setPost } from \"state\";\r\n+  ChatBubbleOutlineOutlined,\r\n+  FavoriteBorderOutlined,\r\n+  FavoriteOutlined,\r\n+  ShareOutlined,\r\n+} from \"@mui/icons-material\";\r\n+import { Box, Divider, IconButton, Typography, useTheme } from \"@mui/material\";\r\n+import FlexBetween from \"components/FlexBetween\";\r\n+import Friend from \"components/Friend\";\r\n+import WidgetWrapper from \"components/WidgetWrapper\";\r\n+import { useState } from \"react\";\r\n+import { useDispatch, useSelector } from \"react-redux\";\r\n+import { setPost } from \"state\";\r\n \r\n-const PostWidget = ({  postId,\r\n-    postUserId,\r\n-    name,\r\n-    description,\r\n-    location,\r\n-    picturePath,\r\n-    userPicturePath,\r\n-    likes,\r\n-    comments,}) => {\r\n-  return (\r\n-    <div>\r\n-      \r\n-    </div>\r\n-  )\r\n-}\r\n+const PostWidget = ({\r\n+  postId,\r\n+  postUserId,\r\n+  name,\r\n+  description,\r\n+  location,\r\n+  picturePath,\r\n+  userPicturePath,\r\n+  likes,\r\n+  comments,\r\n+}) => {\r\n \r\n-export default PostWidget\r\n+    const [isComments, setIsComments] = useState(false);\r\n+    const dispatch = useDispatch();\r\n+    const token = useSelector((state) => state.token);\r\n+    const loggedInUserId = useSelector((state) => state.user._id);\r\n+    const isLiked = Boolean(likes[loggedInUserId]);\r\n+    const likeCount = Object.keys(likes).length;\r\n+  \r\n+    const { palette } = useTheme();\r\n+    const main = palette.neutral.main;\r\n+    const primary = palette.primary.main;\r\n+  return <div></div>;\r\n+};\r\n+\r\n+export default PostWidget;\r\n"
+                },
+                {
+                    "date": 1692004271871,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -23,19 +23,21 @@\n   userPicturePath,\r\n   likes,\r\n   comments,\r\n }) => {\r\n+  const [isComments, setIsComments] = useState(false);\r\n+  const dispatch = useDispatch();\r\n+  const token = useSelector((state) => state.token);\r\n+  const loggedInUserId = useSelector((state) => state.user._id);\r\n+  const isLiked = Boolean(likes[loggedInUserId]);\r\n+  const likeCount = Object.keys(likes).length;\r\n \r\n-    const [isComments, setIsComments] = useState(false);\r\n-    const dispatch = useDispatch();\r\n-    const token = useSelector((state) => state.token);\r\n-    const loggedInUserId = useSelector((state) => state.user._id);\r\n-    const isLiked = Boolean(likes[loggedInUserId]);\r\n-    const likeCount = Object.keys(likes).length;\r\n+  const { palette } = useTheme();\r\n+  const main = palette.neutral.main;\r\n+  const primary = palette.primary.main;\r\n+\r\n+\r\n   \r\n-    const { palette } = useTheme();\r\n-    const main = palette.neutral.main;\r\n-    const primary = palette.primary.main;\r\n   return <div></div>;\r\n };\r\n \r\n export default PostWidget;\r\n"
+                },
+                {
+                    "date": 1692004298477,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,10 +34,12 @@\n   const { palette } = useTheme();\r\n   const main = palette.neutral.main;\r\n   const primary = palette.primary.main;\r\n \r\n+  const patchLike = async()=>{\r\n+    \r\n+  }\r\n \r\n-  \r\n   return <div></div>;\r\n };\r\n \r\n export default PostWidget;\r\n"
+                },
+                {
+                    "date": 1692004305296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n   const main = palette.neutral.main;\r\n   const primary = palette.primary.main;\r\n \r\n   const patchLike = async()=>{\r\n-    \r\n+    const response = await fetch('')\r\n   }\r\n \r\n   return <div></div>;\r\n };\r\n"
+                },
+                {
+                    "date": 1692004316408,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,9 @@\n   const main = palette.neutral.main;\r\n   const primary = palette.primary.main;\r\n \r\n   const patchLike = async()=>{\r\n-    const response = await fetch('')\r\n+    const response = await fetch(`http://localhost:3001/posts/${postId}/like`)\r\n   }\r\n \r\n   return <div></div>;\r\n };\r\n"
+                },
+                {
+                    "date": 1692004331073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -35,9 +35,11 @@\n   const main = palette.neutral.main;\r\n   const primary = palette.primary.main;\r\n \r\n   const patchLike = async()=>{\r\n-    const response = await fetch(`http://localhost:3001/posts/${postId}/like`)\r\n+    const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {\r\n+      method: 'PATCH'\r\n+    })\r\n   }\r\n \r\n   return <div></div>;\r\n };\r\n"
+                },
+                {
+                    "date": 1692004337611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,9 +36,10 @@\n   const primary = palette.primary.main;\r\n \r\n   const patchLike = async()=>{\r\n     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {\r\n-      method: 'PATCH'\r\n+      method: 'PATCH',\r\n+      headers= {}\r\n     })\r\n   }\r\n \r\n   return <div></div>;\r\n"
+                },
+                {
+                    "date": 1692004345235,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,11 @@\n \r\n   const patchLike = async()=>{\r\n     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {\r\n       method: 'PATCH',\r\n-      headers= {}\r\n+      headers= {\r\n+        Authorization: `Bearer `\r\n+      }\r\n     })\r\n   }\r\n \r\n   return <div></div>;\r\n"
+                },
+                {
+                    "date": 1692004350967,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,9 @@\n   const patchLike = async()=>{\r\n     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {\r\n       method: 'PATCH',\r\n       headers= {\r\n-        Authorization: `Bearer `\r\n+        Authorization: `Bearer  `\r\n       }\r\n     })\r\n   }\r\n \r\n"
+                },
+                {
+                    "date": 1692004358421,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,9 +38,10 @@\n   const patchLike = async()=>{\r\n     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {\r\n       method: 'PATCH',\r\n       headers= {\r\n-        Authorization: `Bearer  `\r\n+        Authorization: `Bearer  ${token}`,\r\n+        ''\r\n       }\r\n     })\r\n   }\r\n \r\n"
+                },
+                {
+                    "date": 1692004370772,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {\r\n       method: 'PATCH',\r\n       headers= {\r\n         Authorization: `Bearer  ${token}`,\r\n-        ''\r\n+        'Content-Type': \r\n       }\r\n     })\r\n   }\r\n \r\n"
+                },
+                {
+                    "date": 1692004376681,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,9 +39,9 @@\n     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {\r\n       method: 'PATCH',\r\n       headers= {\r\n         Authorization: `Bearer  ${token}`,\r\n-        'Content-Type': \r\n+        'Content-Type': 'application/json'\r\n       }\r\n     })\r\n   }\r\n \r\n"
+                },
+                {
+                    "date": 1692004385063,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -37,9 +37,9 @@\n \r\n   const patchLike = async()=>{\r\n     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {\r\n       method: 'PATCH',\r\n-      headers= {\r\n+      headers: {\r\n         Authorization: `Bearer  ${token}`,\r\n         'Content-Type': 'application/json'\r\n       }\r\n     })\r\n"
+                },
+                {
+                    "date": 1692004390318,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,9 @@\n         Authorization: `Bearer  ${token}`,\r\n         'Content-Type': 'application/json'\r\n       }\r\n     })\r\n+    \r\n   }\r\n \r\n   return <div></div>;\r\n };\r\n"
+                },
+                {
+                    "date": 1692004403801,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,10 @@\n       method: 'PATCH',\r\n       headers: {\r\n         Authorization: `Bearer  ${token}`,\r\n         'Content-Type': 'application/json'\r\n-      }\r\n+      },\r\n+      body: JSON.stringify({ userId: loggedInUserId }),\r\n     })\r\n     \r\n   }\r\n \r\n"
+                },
+                {
+                    "date": 1692004436725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,8 +43,9 @@\n         'Content-Type': 'application/json'\r\n       },\r\n       body: JSON.stringify({ userId: loggedInUserId }),\r\n     })\r\n+    const updatedPost = \r\n     \r\n   }\r\n \r\n   return <div></div>;\r\n"
+                },
+                {
+                    "date": 1692004444837,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,9 @@\n         'Content-Type': 'application/json'\r\n       },\r\n       body: JSON.stringify({ userId: loggedInUserId }),\r\n     })\r\n-    const updatedPost = \r\n+    const updatedPost = await \r\n     \r\n   }\r\n \r\n   return <div></div>;\r\n"
+                },
+                {
+                    "date": 1692004454575,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -43,9 +43,11 @@\n         'Content-Type': 'application/json'\r\n       },\r\n       body: JSON.stringify({ userId: loggedInUserId }),\r\n     })\r\n-    const updatedPost = await \r\n+    const updatedPost = await response.json()\r\n+    dispatch(setPost({ post: updatedPost }));\r\n+\r\n     \r\n   }\r\n \r\n   return <div></div>;\r\n"
+                },
+                {
+                    "date": 1692004490852,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,8 +49,10 @@\n \r\n     \r\n   }\r\n \r\n-  return <div></div>;\r\n+  return (\r\n+    \r\n+  );\r\n };\r\n \r\n export default PostWidget;\r\n"
+                },
+                {
+                    "date": 1692004496361,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n     \r\n   }\r\n \r\n   return (\r\n-    \r\n+    Widget\r\n   );\r\n };\r\n \r\n export default PostWidget;\r\n"
+                },
+                {
+                    "date": 1692004502384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,11 @@\n     \r\n   }\r\n \r\n   return (\r\n-    Widget\r\n+    <WidgetWrapper>\r\n+      \r\n+    </WidgetWrapper>\r\n   );\r\n };\r\n \r\n export default PostWidget;\r\n"
+                },
+                {
+                    "date": 1692004528596,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,10 +50,10 @@\n     \r\n   }\r\n \r\n   return (\r\n-    <WidgetWrapper>\r\n-      \r\n+    <WidgetWrapper m=\"2rem 0\">\r\n+\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004537921,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   }\r\n \r\n   return (\r\n     <WidgetWrapper m=\"2rem 0\">\r\n-\r\n+      <Friend />\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004545725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   }\r\n \r\n   return (\r\n     <WidgetWrapper m=\"2rem 0\">\r\n-      <Friend />\r\n+      <Friend friendId={postUserId}/>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004552385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   }\r\n \r\n   return (\r\n     <WidgetWrapper m=\"2rem 0\">\r\n-      <Friend friendId={postUserId}/>\r\n+      <Friend friendId={postUserId} name={name} sub/>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004564955,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -51,9 +51,9 @@\n   }\r\n \r\n   return (\r\n     <WidgetWrapper m=\"2rem 0\">\r\n-      <Friend friendId={postUserId} name={name} sub/>\r\n+      <Friend friendId={postUserId} name={name} subtitle={location} user/>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004574998,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -34,26 +34,30 @@\n   const { palette } = useTheme();\r\n   const main = palette.neutral.main;\r\n   const primary = palette.primary.main;\r\n \r\n-  const patchLike = async()=>{\r\n+  const patchLike = async () => {\r\n     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {\r\n-      method: 'PATCH',\r\n+      method: \"PATCH\",\r\n       headers: {\r\n         Authorization: `Bearer  ${token}`,\r\n-        'Content-Type': 'application/json'\r\n+        \"Content-Type\": \"application/json\",\r\n       },\r\n       body: JSON.stringify({ userId: loggedInUserId }),\r\n-    })\r\n-    const updatedPost = await response.json()\r\n+    });\r\n+    const updatedPost = await response.json();\r\n     dispatch(setPost({ post: updatedPost }));\r\n+  };\r\n \r\n-    \r\n-  }\r\n-\r\n   return (\r\n     <WidgetWrapper m=\"2rem 0\">\r\n-      <Friend friendId={postUserId} name={name} subtitle={location} user/>\r\n+      <Friend\r\n+        friendId={postUserId}\r\n+        name={name}\r\n+        subtitle={location}\r\n+        userPicturePath={userPicturePath}\r\n+      />\r\n+      <Typography></Typography>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004583473,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n         name={name}\r\n         subtitle={location}\r\n         userPicturePath={userPicturePath}\r\n       />\r\n-      <Typography></Typography>\r\n+      <Typography color={main} sx={{}}></Typography>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004588698,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n         name={name}\r\n         subtitle={location}\r\n         userPicturePath={userPicturePath}\r\n       />\r\n-      <Typography color={main} sx={{}}></Typography>\r\n+      <Typography color={main} sx={{mt:}}></Typography>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004600754,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n         name={name}\r\n         subtitle={location}\r\n         userPicturePath={userPicturePath}\r\n       />\r\n-      <Typography color={main} sx={{mt:}}></Typography>\r\n+      <Typography color={main} sx={{mt:''1rem}}></Typography>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004611584,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n         name={name}\r\n         subtitle={location}\r\n         userPicturePath={userPicturePath}\r\n       />\r\n-      <Typography color={main} sx={{mt:''1rem}}></Typography>\r\n+      <Typography color={main} sx={{mt:'1rem'}}>{desctip</Typography>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004617437,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,9 @@\n         name={name}\r\n         subtitle={location}\r\n         userPicturePath={userPicturePath}\r\n       />\r\n-      <Typography color={main} sx={{mt:'1rem'}}>{desctip</Typography>\r\n+      <Typography color={main} sx={{mt:'1rem'}}>{description}</Typography>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004624262,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -55,9 +55,12 @@\n         name={name}\r\n         subtitle={location}\r\n         userPicturePath={userPicturePath}\r\n       />\r\n-      <Typography color={main} sx={{mt:'1rem'}}>{description}</Typography>\r\n+      <Typography color={main} sx={{ mt: \"1rem\" }}>\r\n+        {description}\r\n+      </Typography>\r\n+      \r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004635952,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -58,9 +58,17 @@\n       />\r\n       <Typography color={main} sx={{ mt: \"1rem\" }}>\r\n         {description}\r\n       </Typography>\r\n-      \r\n+      {picturePath && (\r\n+        <img\r\n+          width=\"100%\"\r\n+          height=\"auto\"\r\n+          alt=\"post\"\r\n+          style={{ borderRadius: \"0.75rem\", marginTop: \"0.75rem\" }}\r\n+          src={`http://localhost:3001/assets/${picturePath}`}\r\n+        />\r\n+      )}\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004714761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,8 +67,11 @@\n           style={{ borderRadius: \"0.75rem\", marginTop: \"0.75rem\" }}\r\n           src={`http://localhost:3001/assets/${picturePath}`}\r\n         />\r\n       )}\r\n+      <FlexBetween>\r\n+        \r\n+      </FlexBetween>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692004723717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -67,10 +67,10 @@\n           style={{ borderRadius: \"0.75rem\", marginTop: \"0.75rem\" }}\r\n           src={`http://localhost:3001/assets/${picturePath}`}\r\n         />\r\n       )}\r\n-      <FlexBetween>\r\n-        \r\n+      <FlexBetween mt=\"0.25rem\">\r\n+\r\n       </FlexBetween>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1692004731603,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,9 +68,11 @@\n           src={`http://localhost:3001/assets/${picturePath}`}\r\n         />\r\n       )}\r\n       <FlexBetween mt=\"0.25rem\">\r\n+          <FlexBetween >\r\n \r\n+          </FlexBetween>\r\n       </FlexBetween>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1692004737445,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,9 +68,9 @@\n           src={`http://localhost:3001/assets/${picturePath}`}\r\n         />\r\n       )}\r\n       <FlexBetween mt=\"0.25rem\">\r\n-          <FlexBetween >\r\n+          <FlexBetween gap=\"1rem\">\r\n \r\n           </FlexBetween>\r\n       </FlexBetween>\r\n     </WidgetWrapper>\r\n"
+                },
+                {
+                    "date": 1692004745563,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -69,9 +69,11 @@\n         />\r\n       )}\r\n       <FlexBetween mt=\"0.25rem\">\r\n           <FlexBetween gap=\"1rem\">\r\n-\r\n+              <FlexBetween>\r\n+                \r\n+              </FlexBetween>\r\n           </FlexBetween>\r\n       </FlexBetween>\r\n     </WidgetWrapper>\r\n   );\r\n"
+                },
+                {
+                    "date": 1692004754127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,82 @@\n+import React from \"react\";\r\n+import {\r\n+  ChatBubbleOutlineOutlined,\r\n+  FavoriteBorderOutlined,\r\n+  FavoriteOutlined,\r\n+  ShareOutlined,\r\n+} from \"@mui/icons-material\";\r\n+import { Box, Divider, IconButton, Typography, useTheme } from \"@mui/material\";\r\n+import FlexBetween from \"components/FlexBetween\";\r\n+import Friend from \"components/Friend\";\r\n+import WidgetWrapper from \"components/WidgetWrapper\";\r\n+import { useState } from \"react\";\r\n+import { useDispatch, useSelector } from \"react-redux\";\r\n+import { setPost } from \"state\";\r\n+\r\n+const PostWidget = ({\r\n+  postId,\r\n+  postUserId,\r\n+  name,\r\n+  description,\r\n+  location,\r\n+  picturePath,\r\n+  userPicturePath,\r\n+  likes,\r\n+  comments,\r\n+}) => {\r\n+  const [isComments, setIsComments] = useState(false);\r\n+  const dispatch = useDispatch();\r\n+  const token = useSelector((state) => state.token);\r\n+  const loggedInUserId = useSelector((state) => state.user._id);\r\n+  const isLiked = Boolean(likes[loggedInUserId]);\r\n+  const likeCount = Object.keys(likes).length;\r\n+\r\n+  const { palette } = useTheme();\r\n+  const main = palette.neutral.main;\r\n+  const primary = palette.primary.main;\r\n+\r\n+  const patchLike = async () => {\r\n+    const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {\r\n+      method: \"PATCH\",\r\n+      headers: {\r\n+        Authorization: `Bearer  ${token}`,\r\n+        \"Content-Type\": \"application/json\",\r\n+      },\r\n+      body: JSON.stringify({ userId: loggedInUserId }),\r\n+    });\r\n+    const updatedPost = await response.json();\r\n+    dispatch(setPost({ post: updatedPost }));\r\n+  };\r\n+\r\n+  return (\r\n+    <WidgetWrapper m=\"2rem 0\">\r\n+      <Friend\r\n+        friendId={postUserId}\r\n+        name={name}\r\n+        subtitle={location}\r\n+        userPicturePath={userPicturePath}\r\n+      />\r\n+      <Typography color={main} sx={{ mt: \"1rem\" }}>\r\n+        {description}\r\n+      </Typography>\r\n+      {picturePath && (\r\n+        <img\r\n+          width=\"100%\"\r\n+          height=\"auto\"\r\n+          alt=\"post\"\r\n+          style={{ borderRadius: \"0.75rem\", marginTop: \"0.75rem\" }}\r\n+          src={`http://localhost:3001/assets/${picturePath}`}\r\n+        />\r\n+      )}\r\n+      <FlexBetween mt=\"0.25rem\">\r\n+          <FlexBetween gap=\"1rem\">\r\n+              <FlexBetween gap=\"0.3rem\">\r\n+\r\n+              </FlexBetween>\r\n+          </FlexBetween>\r\n+      </FlexBetween>\r\n+    </WidgetWrapper>\r\n+  );\r\n+};\r\n+\r\n+export default PostWidget;\r\n"
+                },
+                {
+                    "date": 1692004815360,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -70,95 +70,20 @@\n       )}\r\n       <FlexBetween mt=\"0.25rem\">\r\n           <FlexBetween gap=\"1rem\">\r\n               <FlexBetween gap=\"0.3rem\">\r\n-\r\n+              <IconButton onClick={patchLike}>\r\n+              {isLiked ? (\r\n+                <FavoriteOutlined sx={{ color: primary }} />\r\n+              ) : (\r\n+                <FavoriteBorderOutlined />\r\n+              )}\r\n+            </IconButton>\r\n+            <Typography>{likeCount}</Typography>\r\n               </FlexBetween>\r\n           </FlexBetween>\r\n       </FlexBetween>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n export default PostWidget;\r\n-import React from \"react\";\r\n-import {\r\n-  ChatBubbleOutlineOutlined,\r\n-  FavoriteBorderOutlined,\r\n-  FavoriteOutlined,\r\n-  ShareOutlined,\r\n-} from \"@mui/icons-material\";\r\n-import { Box, Divider, IconButton, Typography, useTheme } from \"@mui/material\";\r\n-import FlexBetween from \"components/FlexBetween\";\r\n-import Friend from \"components/Friend\";\r\n-import WidgetWrapper from \"components/WidgetWrapper\";\r\n-import { useState } from \"react\";\r\n-import { useDispatch, useSelector } from \"react-redux\";\r\n-import { setPost } from \"state\";\r\n-\r\n-const PostWidget = ({\r\n-  postId,\r\n-  postUserId,\r\n-  name,\r\n-  description,\r\n-  location,\r\n-  picturePath,\r\n-  userPicturePath,\r\n-  likes,\r\n-  comments,\r\n-}) => {\r\n-  const [isComments, setIsComments] = useState(false);\r\n-  const dispatch = useDispatch();\r\n-  const token = useSelector((state) => state.token);\r\n-  const loggedInUserId = useSelector((state) => state.user._id);\r\n-  const isLiked = Boolean(likes[loggedInUserId]);\r\n-  const likeCount = Object.keys(likes).length;\r\n-\r\n-  const { palette } = useTheme();\r\n-  const main = palette.neutral.main;\r\n-  const primary = palette.primary.main;\r\n-\r\n-  const patchLike = async () => {\r\n-    const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {\r\n-      method: \"PATCH\",\r\n-      headers: {\r\n-        Authorization: `Bearer  ${token}`,\r\n-        \"Content-Type\": \"application/json\",\r\n-      },\r\n-      body: JSON.stringify({ userId: loggedInUserId }),\r\n-    });\r\n-    const updatedPost = await response.json();\r\n-    dispatch(setPost({ post: updatedPost }));\r\n-  };\r\n-\r\n-  return (\r\n-    <WidgetWrapper m=\"2rem 0\">\r\n-      <Friend\r\n-        friendId={postUserId}\r\n-        name={name}\r\n-        subtitle={location}\r\n-        userPicturePath={userPicturePath}\r\n-      />\r\n-      <Typography color={main} sx={{ mt: \"1rem\" }}>\r\n-        {description}\r\n-      </Typography>\r\n-      {picturePath && (\r\n-        <img\r\n-          width=\"100%\"\r\n-          height=\"auto\"\r\n-          alt=\"post\"\r\n-          style={{ borderRadius: \"0.75rem\", marginTop: \"0.75rem\" }}\r\n-          src={`http://localhost:3001/assets/${picturePath}`}\r\n-        />\r\n-      )}\r\n-      <FlexBetween mt=\"0.25rem\">\r\n-          <FlexBetween gap=\"1rem\">\r\n-              <FlexBetween>\r\n-                \r\n-              </FlexBetween>\r\n-          </FlexBetween>\r\n-      </FlexBetween>\r\n-    </WidgetWrapper>\r\n-  );\r\n-};\r\n-\r\n-export default PostWidget;\r\n"
+                },
+                {
+                    "date": 1692004888281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -68,20 +68,23 @@\n           src={`http://localhost:3001/assets/${picturePath}`}\r\n         />\r\n       )}\r\n       <FlexBetween mt=\"0.25rem\">\r\n-          <FlexBetween gap=\"1rem\">\r\n-              <FlexBetween gap=\"0.3rem\">\r\n-              <IconButton onClick={patchLike}>\r\n+        <FlexBetween gap=\"1rem\">\r\n+          <FlexBetween gap=\"0.3rem\">\r\n+            <IconButton onClick={patchLike}>\r\n               {isLiked ? (\r\n                 <FavoriteOutlined sx={{ color: primary }} />\r\n               ) : (\r\n                 <FavoriteBorderOutlined />\r\n               )}\r\n             </IconButton>\r\n             <Typography>{likeCount}</Typography>\r\n-              </FlexBetween>\r\n           </FlexBetween>\r\n+\r\n+\r\n+          \r\n+        </FlexBetween>\r\n       </FlexBetween>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1692004900804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,10 +80,13 @@\n             </IconButton>\r\n             <Typography>{likeCount}</Typography>\r\n           </FlexBetween>\r\n \r\n+          <FlexBetween>\r\n+            \r\n+            </FlexBetween>      \r\n \r\n-          \r\n+\r\n         </FlexBetween>\r\n       </FlexBetween>\r\n     </WidgetWrapper>\r\n   );\r\n"
+                },
+                {
+                    "date": 1692004908946,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -80,11 +80,11 @@\n             </IconButton>\r\n             <Typography>{likeCount}</Typography>\r\n           </FlexBetween>\r\n \r\n-          <FlexBetween>\r\n+          <FlexBetween gap=\"0.3rem\">\r\n             \r\n-            </FlexBetween>      \r\n+          </FlexBetween>      \r\n \r\n \r\n         </FlexBetween>\r\n       </FlexBetween>\r\n"
+                },
+                {
+                    "date": 1692004920749,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,9 +81,12 @@\n             <Typography>{likeCount}</Typography>\r\n           </FlexBetween>\r\n \r\n           <FlexBetween gap=\"0.3rem\">\r\n-            \r\n+          <IconButton onClick={() => setIsComments(!isComments)}>\r\n+              <ChatBubbleOutlineOutlined />\r\n+            </IconButton>\r\n+            <Typography>{comments.length}</Typography>\r\n           </FlexBetween>      \r\n \r\n \r\n         </FlexBetween>\r\n"
+                },
+                {
+                    "date": 1692004926211,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -81,15 +81,15 @@\n             <Typography>{likeCount}</Typography>\r\n           </FlexBetween>\r\n \r\n           <FlexBetween gap=\"0.3rem\">\r\n-          <IconButton onClick={() => setIsComments(!isComments)}>\r\n+            <IconButton onClick={() => setIsComments(!isComments)}>\r\n               <ChatBubbleOutlineOutlined />\r\n             </IconButton>\r\n             <Typography>{comments.length}</Typography>\r\n-          </FlexBetween>      \r\n+          </FlexBetween>\r\n \r\n-\r\n+          \r\n         </FlexBetween>\r\n       </FlexBetween>\r\n     </WidgetWrapper>\r\n   );\r\n"
+                },
+                {
+                    "date": 1692004968892,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -87,8 +87,11 @@\n             </IconButton>\r\n             <Typography>{comments.length}</Typography>\r\n           </FlexBetween>\r\n \r\n+\r\n+\r\n+\r\n           \r\n         </FlexBetween>\r\n       </FlexBetween>\r\n     </WidgetWrapper>\r\n"
+                },
+                {
+                    "date": 1692004975136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -87,12 +87,14 @@\n             </IconButton>\r\n             <Typography>{comments.length}</Typography>\r\n           </FlexBetween>\r\n \r\n+          <IconButton>\r\n+            \r\n+          </IconButton>\r\n \r\n \r\n \r\n-          \r\n         </FlexBetween>\r\n       </FlexBetween>\r\n     </WidgetWrapper>\r\n   );\r\n"
+                },
+                {
+                    "date": 1692004987468,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -88,9 +88,9 @@\n             <Typography>{comments.length}</Typography>\r\n           </FlexBetween>\r\n \r\n           <IconButton>\r\n-            \r\n+            <ShareOutlined />\r\n           </IconButton>\r\n \r\n \r\n \r\n"
+                },
+                {
+                    "date": 1692005005000,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -87,11 +87,8 @@\n             </IconButton>\r\n             <Typography>{comments.length}</Typography>\r\n           </FlexBetween>\r\n \r\n-          <IconButton>\r\n-            <ShareOutlined />\r\n-          </IconButton>\r\n \r\n \r\n \r\n         </FlexBetween>\r\n"
+                },
+                {
+                    "date": 1692005012838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -86,14 +86,15 @@\n               <ChatBubbleOutlineOutlined />\r\n             </IconButton>\r\n             <Typography>{comments.length}</Typography>\r\n           </FlexBetween>\r\n-\r\n-\r\n-\r\n-\r\n         </FlexBetween>\r\n       </FlexBetween>\r\n+\r\n+      \r\n+      <IconButton>\r\n+            <ShareOutlined />\r\n+          </IconButton>\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1692005047741,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,4 @@\n-import React from \"react\";\r\n import {\r\n   ChatBubbleOutlineOutlined,\r\n   FavoriteBorderOutlined,\r\n   FavoriteOutlined,\r\n@@ -38,9 +37,9 @@\n   const patchLike = async () => {\r\n     const response = await fetch(`http://localhost:3001/posts/${postId}/like`, {\r\n       method: \"PATCH\",\r\n       headers: {\r\n-        Authorization: `Bearer  ${token}`,\r\n+        Authorization: `Bearer ${token}`,\r\n         \"Content-Type\": \"application/json\",\r\n       },\r\n       body: JSON.stringify({ userId: loggedInUserId }),\r\n     });\r\n@@ -87,15 +86,27 @@\n             </IconButton>\r\n             <Typography>{comments.length}</Typography>\r\n           </FlexBetween>\r\n         </FlexBetween>\r\n+\r\n+        <IconButton>\r\n+          <ShareOutlined />\r\n+        </IconButton>\r\n       </FlexBetween>\r\n-\r\n-      \r\n-      <IconButton>\r\n-            <ShareOutlined />\r\n-          </IconButton>\r\n+      {isComments && (\r\n+        <Box mt=\"0.5rem\">\r\n+          {comments.map((comment, i) => (\r\n+            <Box key={`${name}-${i}`}>\r\n+              <Divider />\r\n+              <Typography sx={{ color: main, m: \"0.5rem 0\", pl: \"1rem\" }}>\r\n+                {comment}\r\n+              </Typography>\r\n+            </Box>\r\n+          ))}\r\n+          <Divider />\r\n+        </Box>\r\n+      )}\r\n     </WidgetWrapper>\r\n   );\r\n };\r\n \r\n-export default PostWidget;\r\n+export default PostWidget;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1692005078393,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -91,8 +91,9 @@\n         <IconButton>\r\n           <ShareOutlined />\r\n         </IconButton>\r\n       </FlexBetween>\r\n+      \r\n       {isComments && (\r\n         <Box mt=\"0.5rem\">\r\n           {comments.map((comment, i) => (\r\n             <Box key={`${name}-${i}`}>\r\n"
+                }
+            ],
+            "date": 1691997967472,
+            "name": "Commit-0",
+            "content": "import React from 'react'\r\n\r\nconst PostWidget = () => {\r\n  return (\r\n    <div>\r\n      \r\n    </div>\r\n  )\r\n}\r\n\r\nexport default PostWidget\r\n"
+        }
+    ]
+}

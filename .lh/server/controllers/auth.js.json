@@ -1,0 +1,30 @@
+{
+    "sourceFile": "server/controllers/auth.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 3,
+            "patches": [
+                {
+                    "date": 1691779864044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691779929769,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import bcrypt from \"bcrypt\";\r\n-import { Jwt } from \"jsonwebtoken\";\r\n+jwt\r\n import User from \"../modells/User.js\";\r\n \r\n export const register = async (req, res) => {\r\n   try {\r\n"
+                },
+                {
+                    "date": 1691779942045,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import bcrypt from \"bcrypt\";\r\n-jwt\r\n+import { Jwt } from \"jsonwebtoken\";\r\n import User from \"../modells/User.js\";\r\n \r\n export const register = async (req, res) => {\r\n   try {\r\n"
+                },
+                {
+                    "date": 1691779998612,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import bcrypt from \"bcrypt\";\r\n-import { Jwt } from \"jsonwebtoken\";\r\n+import jwt from \"jsonwebtoken\";\r\n import User from \"../modells/User.js\";\r\n \r\n export const register = async (req, res) => {\r\n   try {\r\n"
+                }
+            ],
+            "date": 1691779864043,
+            "name": "Commit-0",
+            "content": "import bcrypt from \"bcrypt\";\r\nimport { Jwt } from \"jsonwebtoken\";\r\nimport User from \"../modells/User.js\";\r\n\r\nexport const register = async (req, res) => {\r\n  try {\r\n    const {\r\n      firstName,\r\n      lastName,\r\n      email,\r\n      password,\r\n      picturePath,\r\n      friends,\r\n      location,\r\n      occupation,\r\n    } = req.body;\r\n\r\n    const salt = await bcrypt.genSalt()\r\n    const passwordHash = await bcrypt.hash(password,salt)\r\n\r\n    const newUser = new User({\r\n      firstName,\r\n      lastName,\r\n      email,\r\n      password: passwordHash,\r\n      picturePath,\r\n      friends,\r\n      location,\r\n      occupation,\r\n      viewedProfile: Math.floor(Math.random() * 10000),\r\n      impressions: Math.floor(Math.random() * 10000)\r\n    })\r\n    const savedUser = await newUser.save()\r\n    res.status(201).json(savedUser)\r\n  } catch (err) {\r\n      res.status(500).json({error: err.message}) \r\n      \r\n  }\r\n};\r\n\r\n\r\nexport const login = async (req,res) => {\r\n  try{\r\n    const {email,password} = req.body\r\n    const user = await User.findOne({email:email})\r\n\r\n    if(!user){\r\n      return res.status(400).json({msg: \"User doesn't exist\"})\r\n    }\r\n\r\n    const isMatch = await bcrypt.compare(password, user.password)\r\n\r\n    if(!isMatch){\r\n      return res.status(400).json({msg: \"Invalid Password\"})\r\n    }\r\n\r\n    const token = jwt.sign({id:user._id}, process.env.JWT_SECRET)\r\n    delete user.password;\r\n    res.status(200).json({ token, user });\r\n  }catch (err){\r\n    res.status(500).json({error: err.message})\r\n  }\r\n} "
+        }
+    ]
+}

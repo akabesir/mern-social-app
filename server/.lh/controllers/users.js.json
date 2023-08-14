@@ -1,0 +1,78 @@
+{
+    "sourceFile": "controllers/users.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 15,
+            "patches": [
+                {
+                    "date": 1691513418127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691513436728,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-import User \n\\ No newline at end of file\n+import User from \"\"\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513443284,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,1 @@\n-import User from \"\"\n\\ No newline at end of file\n+import User from \"../models/User.js\"\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513453560,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,3 @@\n-import User from \"../models/User.js\"\n\\ No newline at end of file\n+import User from \"../models/User.js\"\r\n+\r\n+export const \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513460017,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n import User from \"../models/User.js\"\r\n \r\n-export const \n\\ No newline at end of file\n+export const getUser = async (req,res)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513467720,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,9 @@\n import User from \"../models/User.js\"\r\n \r\n-export const getUser = async (req,res)\n\\ No newline at end of file\n+export const getUser = async (req,res) => {\r\n+    try{\r\n+\r\n+    }catch{\r\n+        \r\n+    }\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513481641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,8 @@\n \r\n export const getUser = async (req,res) => {\r\n     try{\r\n \r\n-    }catch{\r\n-        \r\n+    }catch(err){\r\n+        res.status(404).json({message:error})\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513486942,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,8 @@\n \r\n export const getUser = async (req,res) => {\r\n     try{\r\n \r\n-    }catch(err){\r\n-        res.status(404).json({message:error})\r\n+    }catch(error){\r\n+        res.status(404).json({message:error.message})\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513495315,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import User from \"../models/User.js\"\r\n \r\n export const getUser = async (req,res) => {\r\n     try{\r\n-\r\n+        const {id} = req.params\r\n     }catch(error){\r\n         res.status(404).json({message:error.message})\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513511813,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,9 @@\n \r\n export const getUser = async (req,res) => {\r\n     try{\r\n         const {id} = req.params\r\n+        const user = await User.findById\r\n     }catch(error){\r\n         res.status(404).json({message:error.message})\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513524031,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n export const getUser = async (req,res) => {\r\n     try{\r\n         const {id} = req.params\r\n-        const user = await User.findById\r\n+        const user = await User.findById(id)\r\n     }catch(error){\r\n         res.status(404).json({message:error.message})\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513535667,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,8 +3,9 @@\n export const getUser = async (req,res) => {\r\n     try{\r\n         const {id} = req.params\r\n         const user = await User.findById(id)\r\n+        res.status(200)\r\n     }catch(error){\r\n         res.status(404).json({message:error.message})\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513544370,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,11 @@\n export const getUser = async (req,res) => {\r\n     try{\r\n         const {id} = req.params\r\n         const user = await User.findById(id)\r\n-        res.status(200)\r\n+        res.status(200).jsn(user)\r\n     }catch(error){\r\n         res.status(404).json({message:error.message})\r\n     }\r\n\\ No newline at end of file\n-}\n+}\r\n+\r\n+export const \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513556294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,5 +9,5 @@\n         res.status(404).json({message:error.message})\r\n     }\r\n }\r\n \r\n-export const \n\\ No newline at end of file\n+export const getUserFriends = \n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513586188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,5 +9,22 @@\n         res.status(404).json({message:error.message})\r\n     }\r\n }\r\n \r\n-export const getUserFriends = \n\\ No newline at end of file\n+export const getUserFriends = async (req, res) => {\r\n+    try {\r\n+      const { id } = req.params;\r\n+      const user = await User.findById(id);\r\n+  \r\n+      const friends = await Promise.all(\r\n+        user.friends.map((id) => User.findById(id))\r\n+      );\r\n+      const formattedFriends = friends.map(\r\n+        ({ _id, firstName, lastName, occupation, location, picturePath }) => {\r\n+          return { _id, firstName, lastName, occupation, location, picturePath };\r\n+        }\r\n+      );\r\n+      res.status(200).json(formattedFriends);\r\n+    } catch (err) {\r\n+      res.status(404).json({ message: err.message });\r\n+    }\r\n+  };\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691513739083,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,5 +26,36 @@\n       res.status(200).json(formattedFriends);\r\n     } catch (err) {\r\n       res.status(404).json({ message: err.message });\r\n     }\r\n+  };\r\n+\r\n+  export const addRemoveFriend = async (req, res) => {\r\n+    try {\r\n+      const { id, friendId } = req.params;\r\n+      const user = await User.findById(id);\r\n+      const friend = await User.findById(friendId);\r\n+  \r\n+      if (user.friends.includes(friendId)) {\r\n+        user.friends = user.friends.filter((id) => id !== friendId);\r\n+        friend.friends = friend.friends.filter((id) => id !== id);\r\n+      } else {\r\n+        user.friends.push(friendId);\r\n+        friend.friends.push(id);\r\n+      }\r\n+      await user.save();\r\n+      await friend.save();\r\n+  \r\n+      const friends = await Promise.all(\r\n+        user.friends.map((id) => User.findById(id))\r\n+      );\r\n+      const formattedFriends = friends.map(\r\n+        ({ _id, firstName, lastName, occupation, location, picturePath }) => {\r\n+          return { _id, firstName, lastName, occupation, location, picturePath };\r\n+        }\r\n+      );\r\n+  \r\n+      res.status(200).json(formattedFriends);\r\n+    } catch (err) {\r\n+      res.status(404).json({ message: err.message });\r\n+    }\r\n   };\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1691513418127,
+            "name": "Commit-0",
+            "content": "import User "
+        }
+    ]
+}

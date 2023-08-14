@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client/src/components/UserImage.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1691848161165,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691848167535,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,17 @@\n import { Box } from \"@mui/material\";\r\n-import { styled } from \"@mui/system\";\r\n \r\n-const WidgetWrapper = styled(Box)(({ theme }) => ({\r\n-  padding: \"1.5rem 1.5rem 0.75rem 1.5rem\",\r\n-  backgroundColor: theme.palette.background.alt,\r\n-  borderRadius: \"0.75rem\",\r\n-}));\r\n+const UserImage = ({ image, size = \"60px\" }) => {\r\n+  return (\r\n\\ No newline at end of file\n+    <Box width={size} height={size}>\r\n+      <img\r\n+        style={{ objectFit: \"cover\", borderRadius: \"50%\" }}\r\n+        width={size}\r\n+        height={size}\r\n+        alt=\"user\"\r\n+        src={`http://localhost:3001/assets/${image}`}\r\n+      />\r\n+    </Box>\r\n+  );\r\n+};\r\n \r\n-export default WidgetWrapper;\n+export default UserImage;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1691848161165,
+            "name": "Commit-0",
+            "content": "import { Box } from \"@mui/material\";\r\nimport { styled } from \"@mui/system\";\r\n\r\nconst WidgetWrapper = styled(Box)(({ theme }) => ({\r\n  padding: \"1.5rem 1.5rem 0.75rem 1.5rem\",\r\n  backgroundColor: theme.palette.background.alt,\r\n  borderRadius: \"0.75rem\",\r\n}));\r\n\r\nexport default WidgetWrapper;"
+        }
+    ]
+}

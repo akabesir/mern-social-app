@@ -1,0 +1,70 @@
+{
+    "sourceFile": "client/src/scenes/widgets/PostsWidget.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 13,
+            "patches": [
+                {
+                    "date": 1691997041630,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691997046690,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,8 @@\n import { useDispatch, useSelector } from \"react-redux\";\r\n import { setPosts } from \"state\";\r\n import PostWidget from \"./PostWidget\";\r\n \r\n-import React from 'react'\r\n \r\n const PostsWidget = () => {\r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1691997053028,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,10 @@\n import PostWidget from \"./PostWidget\";\r\n \r\n \r\n const PostsWidget = () => {\r\n+\r\n+    \r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1691997061135,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,16 +2,13 @@\n import { useDispatch, useSelector } from \"react-redux\";\r\n import { setPosts } from \"state\";\r\n import PostWidget from \"./PostWidget\";\r\n \r\n-\r\n const PostsWidget = () => {\r\n+  const dispatch = useDispatch();\r\n+  const posts = useSelector((state) => state.posts);\r\n+  const token = useSelector((state) => state.token);\r\n \r\n-    \r\n-  return (\r\n-    <div>\r\n-      \r\n-    </div>\r\n-  )\r\n-}\r\n+  return (<div></div>);\r\n+};\r\n \r\n-export default PostsWidget\r\n+export default PostsWidget;\r\n"
+                },
+                {
+                    "date": 1691997078574,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,13 +2,16 @@\n import { useDispatch, useSelector } from \"react-redux\";\r\n import { setPosts } from \"state\";\r\n import PostWidget from \"./PostWidget\";\r\n \r\n-const PostsWidget = () => {\r\n+const PostsWidget = ({userId, isProfile = false}) => {\r\n   const dispatch = useDispatch();\r\n   const posts = useSelector((state) => state.posts);\r\n   const token = useSelector((state) => state.token);\r\n \r\n-  return (<div></div>);\r\n+  return (\r\n+  <div>\r\n+\r\n+  </div>);\r\n };\r\n \r\n export default PostsWidget;\r\n"
+                },
+                {
+                    "date": 1691997103679,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n   const dispatch = useDispatch();\r\n   const posts = useSelector((state) => state.posts);\r\n   const token = useSelector((state) => state.token);\r\n \r\n+  \r\n   return (\r\n   <div>\r\n \r\n   </div>);\r\n"
+                },
+                {
+                    "date": 1691997183750,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,10 @@\n   const dispatch = useDispatch();\r\n   const posts = useSelector((state) => state.posts);\r\n   const token = useSelector((state) => state.token);\r\n \r\n-  \r\n+  const getPosts = async()\r\n+\r\n   return (\r\n   <div>\r\n \r\n   </div>);\r\n"
+                },
+                {
+                    "date": 1691997192699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,11 @@\n   const dispatch = useDispatch();\r\n   const posts = useSelector((state) => state.posts);\r\n   const token = useSelector((state) => state.token);\r\n \r\n-  const getPosts = async()\r\n+  const getPosts = async() => {\r\n+    const response = await fetch(\"\")\r\n+  }\r\n \r\n   return (\r\n   <div>\r\n \r\n"
+                },
+                {
+                    "date": 1691997203905,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,9 +8,14 @@\n   const posts = useSelector((state) => state.posts);\r\n   const token = useSelector((state) => state.token);\r\n \r\n   const getPosts = async() => {\r\n-    const response = await fetch(\"\")\r\n+    const response = await fetch(\"http://localhost:3001/posts\", {\r\n+        method: \"GET\",\r\n+        headers: { Authorization: `Bearer ${token}` },\r\n+      });\r\n+      const data = await response.json();\r\n+      dispatch(setPosts({ posts: data }));\r\n   }\r\n \r\n   return (\r\n   <div>\r\n"
+                },
+                {
+                    "date": 1691997261080,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,8 +16,21 @@\n       const data = await response.json();\r\n       dispatch(setPosts({ posts: data }));\r\n   }\r\n \r\n+  const getUserPosts = async () => {\r\n+    const response = await fetch(\r\n+      `http://localhost:3001/posts/${userId}/posts`,\r\n+      {\r\n+        method: \"GET\",\r\n+        headers: { Authorization: `Bearer ${token}` },\r\n+      }\r\n+    );\r\n+    const data = await response.json();\r\n+    dispatch(setPosts({ posts: data }));\r\n+  };\r\n+\r\n+\r\n   return (\r\n   <div>\r\n \r\n   </div>);\r\n"
+                },
+                {
+                    "date": 1691997278730,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,11 @@\n     const data = await response.json();\r\n     dispatch(setPosts({ posts: data }));\r\n   };\r\n \r\n+  useEffect(()=> {\r\n+    \r\n+  })\r\n \r\n   return (\r\n   <div>\r\n \r\n"
+                },
+                {
+                    "date": 1691997312027,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,10 +29,10 @@\n     dispatch(setPosts({ posts: data }));\r\n   };\r\n \r\n   useEffect(()=> {\r\n-    \r\n-  })\r\n+    if(isProfile)\r\n+  }, [])\r\n \r\n   return (\r\n   <div>\r\n \r\n"
+                },
+                {
+                    "date": 1691997320529,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,13 @@\n     dispatch(setPosts({ posts: data }));\r\n   };\r\n \r\n   useEffect(()=> {\r\n-    if(isProfile)\r\n+    if(isProfile){\r\n+        getUserPosts()\r\n+    }else{\r\n+        getPosts()\r\n+    }\r\n   }, [])\r\n \r\n   return (\r\n   <div>\r\n"
+                },
+                {
+                    "date": 1691997582405,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,8 +39,10 @@\n \r\n   return (\r\n   <div>\r\n \r\n-  </div>);\r\n+  </div>\r\n+  \r\n+  );\r\n };\r\n \r\n export default PostsWidget;\r\n"
+                }
+            ],
+            "date": 1691997041630,
+            "name": "Commit-0",
+            "content": "import { useEffect } from \"react\";\r\nimport { useDispatch, useSelector } from \"react-redux\";\r\nimport { setPosts } from \"state\";\r\nimport PostWidget from \"./PostWidget\";\r\n\r\nimport React from 'react'\r\n\r\nconst PostsWidget = () => {\r\n  return (\r\n    <div>\r\n      \r\n    </div>\r\n  )\r\n}\r\n\r\nexport default PostsWidget\r\n"
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "sourceFile": "client/src/scenes/homePage/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1691670939895,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691670947325,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,11 @@\n-rafce\n\\ No newline at end of file\n+import React from 'react'\r\n+\r\n+const homePage = () => {\r\n+  return (\r\n+    <div>\r\n+      \r\n+    </div>\r\n+  )\r\n+}\r\n+\r\n+export default homePage\r\n"
+                },
+                {
+                    "date": 1691670955555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,9 +2,9 @@\n \r\n const homePage = () => {\r\n   return (\r\n     <div>\r\n-      \r\n+      homepage\r\n     </div>\r\n   )\r\n }\r\n \r\n"
+                },
+                {
+                    "date": 1691683812347,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import React from 'react'\r\n \r\n-const homePage = () => {\r\n+const HomePage = () => {\r\n   return (\r\n     <div>\r\n       homepage\r\n     </div>\r\n"
+                },
+                {
+                    "date": 1691688269624,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,9 @@\n import React from 'react'\r\n \r\n const HomePage = () => {\r\n   return (\r\n-    <div>\r\n-      homepage\r\n-    </div>\r\n+    Box\r\n   )\r\n }\r\n \r\n-export default homePage\r\n+export default HomePage\r\n"
+                },
+                {
+                    "date": 1691688275127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,10 @@\n+import { Box } from '@mui/material'\r\n import React from 'react'\r\n \r\n const HomePage = () => {\r\n   return (\r\n-    Box\r\n+    <Box\r\n   )\r\n }\r\n \r\n export default HomePage\r\n"
+                },
+                {
+                    "date": 1691688284821,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,10 +1,13 @@\n import { Box } from '@mui/material'\r\n import React from 'react'\r\n+import Navbar from 'scenes/navbar'\r\n \r\n const HomePage = () => {\r\n   return (\r\n-    <Box\r\n+    <Box>\r\n+      <Navbar/>\r\n+    </Box>\r\n   )\r\n }\r\n \r\n export default HomePage\r\n"
+                },
+                {
+                    "date": 1691877812668,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,8 +2,10 @@\n import React from 'react'\r\n import Navbar from 'scenes/navbar'\r\n \r\n const HomePage = () => {\r\n+\r\n+  \r\n   return (\r\n     <Box>\r\n       <Navbar/>\r\n     </Box>\r\n"
+                },
+                {
+                    "date": 1691877824170,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,11 @@\n-import { Box } from '@mui/material'\r\n+import { Box, useMediaQuery } from '@mui/material'\r\n import React from 'react'\r\n import Navbar from 'scenes/navbar'\r\n \r\n const HomePage = () => {\r\n \r\n-  \r\n+  const isNonMobileScreens = useMediaQuery(\"\")\r\n   return (\r\n     <Box>\r\n       <Navbar/>\r\n     </Box>\r\n"
+                },
+                {
+                    "date": 1691877832782,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import Navbar from 'scenes/navbar'\r\n \r\n const HomePage = () => {\r\n \r\n-  const isNonMobileScreens = useMediaQuery(\"(min-width\")\r\n+  const isNonMobileScreens = useMediaQuery(\"(min-width:\")\r\n   return (\r\n     <Box>\r\n       <Navbar/>\r\n     </Box>\r\n"
+                },
+                {
+                    "date": 1691877956228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n   return (\r\n     <Box>\r\n       <Navbar/>\r\n       <Box width=\"100%\" padding=\"2rem 6%\"\r\n-      display={}\r\n+      display={isNonMobileScreens ? \"flex\" : }\r\n       >\r\n \r\n       </Box>\r\n     </Box>\r\n"
+                }
+            ],
+            "date": 1691670939895,
+            "name": "Commit-0",
+            "content": "rafce"
+        }
+    ]
+}

@@ -1,0 +1,18 @@
+{
+    "sourceFile": "server/controllers/users.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1691779903526,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1691779903526,
+            "name": "Commit-0",
+            "content": "import User from \"../modells/User.js\"\r\n\r\nexport const getUser = async (req,res) => {\r\n    try{\r\n        const {id} = req.params\r\n        const user = await User.findById(id)\r\n        res.status(200).jsn(user)\r\n    }catch(error){\r\n        res.status(404).json({message:error.message})\r\n    }\r\n}\r\n\r\nexport const getUserFriends = async (req, res) => {\r\n    try {\r\n      const { id } = req.params;\r\n      const user = await User.findById(id);\r\n  \r\n      const friends = await Promise.all(\r\n        user.friends.map((id) => User.findById(id))\r\n      );\r\n      const formattedFriends = friends.map(\r\n        ({ _id, firstName, lastName, occupation, location, picturePath }) => {\r\n          return { _id, firstName, lastName, occupation, location, picturePath };\r\n        }\r\n      );\r\n      res.status(200).json(formattedFriends);\r\n    } catch (err) {\r\n      res.status(404).json({ message: err.message });\r\n    }\r\n  };\r\n\r\n  export const addRemoveFriend = async (req, res) => {\r\n    try {\r\n      const { id, friendId } = req.params;\r\n      const user = await User.findById(id);\r\n      const friend = await User.findById(friendId);\r\n  \r\n      if (user.friends.includes(friendId)) {\r\n        user.friends = user.friends.filter((id) => id !== friendId);\r\n        friend.friends = friend.friends.filter((id) => id !== id);\r\n      } else {\r\n        user.friends.push(friendId);\r\n        friend.friends.push(id);\r\n      }\r\n      await user.save();\r\n      await friend.save();\r\n  \r\n      const friends = await Promise.all(\r\n        user.friends.map((id) => User.findById(id))\r\n      );\r\n      const formattedFriends = friends.map(\r\n        ({ _id, firstName, lastName, occupation, location, picturePath }) => {\r\n          return { _id, firstName, lastName, occupation, location, picturePath };\r\n        }\r\n      );\r\n  \r\n      res.status(200).json(formattedFriends);\r\n    } catch (err) {\r\n      res.status(404).json({ message: err.message });\r\n    }\r\n  };"
+        }
+    ]
+}

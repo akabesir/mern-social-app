@@ -1,0 +1,34 @@
+{
+    "sourceFile": "client/src/jsconfig.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 4,
+            "patches": [
+                {
+                    "date": 1691670373490,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691670379275,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,5 @@\n {\r\n-    \"com\"\r\n+    \"compilerOptions\": {\r\n+        \"baseUrl\": \"\"\r\n+    }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691670385713,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n {\r\n     \"compilerOptions\": {\r\n-        \"baseUrl\": \"\"\r\n-    }\r\n+        \"baseUrl\": \"src\"\r\n+    },\r\n+    \"include\": []\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691766509187,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,1 @@\n-{\r\n-    \"compilerOptions\": {\r\n-        \"baseUrl\": \"src\"\r\n-    },\r\n-    \"include\": []\r\n-}\n\\ No newline at end of file\n+a<aa\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691766516230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,6 @@\n-a<aa\n\\ No newline at end of file\n+{\r\n+    \"compilerOptions\": {\r\n+      \"baseUrl\": \"src\"\r\n+    },\r\n+    \"include\": [\"src\"]\r\n+  }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1691670373490,
+            "name": "Commit-0",
+            "content": "{\r\n    \"com\"\r\n}"
+        }
+    ]
+}

@@ -1,0 +1,146 @@
+{
+    "sourceFile": "client/src/scenes/navbar/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 32,
+            "patches": [
+                {
+                    "date": 1691671017349,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691684309815,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,12 @@\n import React from 'react'\r\n \r\n-const index = () => {\r\n+\r\n+const Navbar = () => {\r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n   )\r\n }\r\n \r\n-export default index\r\n+export default Navbar\r\n"
+                },
+                {
+                    "date": 1691684317035,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n-import React from 'react'\r\n+import React, { useState } from 'react'\r\n+import \r\n \r\n-\r\n const Navbar = () => {\r\n   return (\r\n     <div>\r\n       \r\n"
+                },
+                {
+                    "date": 1691684322297,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React, { useState } from 'react'\r\n-import \r\n+import { Box } from '@mui/material'\r\n \r\n const Navbar = () => {\r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1691684329938,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n import React, { useState } from 'react'\r\n-import { Box } from '@mui/material'\r\n+import { Box, IconB } from '@mui/material'\r\n \r\n+\r\n const Navbar = () => {\r\n   return (\r\n     <div>\r\n       \r\n"
+                },
+                {
+                    "date": 1691684335804,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React, { useState } from 'react'\r\n-import { Box, IconB } from '@mui/material'\r\n+import { Box, IconButton, InputBa } from '@mui/material'\r\n \r\n \r\n const Navbar = () => {\r\n   return (\r\n"
+                },
+                {
+                    "date": 1691684344217,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React, { useState } from 'react'\r\n-import { Box, IconButton, InputBa } from '@mui/material'\r\n+import { Box, IconButton, InputBase, Typography,Select, MenuItem,  } from '@mui/material'\r\n \r\n \r\n const Navbar = () => {\r\n   return (\r\n"
+                },
+                {
+                    "date": 1691684352893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,6 +1,6 @@\n import React, { useState } from 'react'\r\n-import { Box, IconButton, InputBase, Typography,Select, MenuItem,  } from '@mui/material'\r\n+import { Box, IconButton, InputBase, Typography,Select, MenuItem, FormControl, useTheme, useMediaQuery,  } from '@mui/material'\r\n \r\n \r\n const Navbar = () => {\r\n   return (\r\n"
+                },
+                {
+                    "date": 1691684359555,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,13 +1,20 @@\n-import React, { useState } from 'react'\r\n-import { Box, IconButton, InputBase, Typography,Select, MenuItem, FormControl, useTheme, useMediaQuery,  } from '@mui/material'\r\n+import React, { useState } from \"react\";\r\n+import {\r\n+  Box,\r\n+  IconButton,\r\n+  InputBase,\r\n+  Typography,\r\n+  Select,\r\n+  MenuItem,\r\n+  FormControl,\r\n+  useTheme,\r\n+  useMediaQuery,\r\n+} from \"@mui/material\";\r\n \r\n+import \r\n \r\n const Navbar = () => {\r\n-  return (\r\n-    <div>\r\n-      \r\n-    </div>\r\n-  )\r\n-}\r\n+  return <div></div>;\r\n+};\r\n \r\n-export default Navbar\r\n+export default Navbar;\r\n"
+                },
+                {
+                    "date": 1691684398951,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,22 @@\n   useTheme,\r\n   useMediaQuery,\r\n } from \"@mui/material\";\r\n \r\n-import \r\n+import {\r\n+  Search,\r\n+  Message,\r\n+  DarkMode,\r\n+  LightMode,\r\n+  Notifications,\r\n+  Help,\r\n+  Menu,\r\n+  Close,\r\n+} from \"@mui/icons-material\";\r\n+import { useDispatch, useSelector } from \"react-redux\";\r\n+import { setMode, setLogout } from \"state\";\r\n+import { useNavigate } from \"react-router-dom\";\r\n+import FlexBetween from \"components/FlexBetween\";\r\n \r\n const Navbar = () => {\r\n   return <div></div>;\r\n };\r\n"
+                },
+                {
+                    "date": 1691684642978,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -9,9 +9,8 @@\n   FormControl,\r\n   useTheme,\r\n   useMediaQuery,\r\n } from \"@mui/material\";\r\n-\r\n import {\r\n   Search,\r\n   Message,\r\n   DarkMode,\r\n@@ -26,8 +25,10 @@\n import { useNavigate } from \"react-router-dom\";\r\n import FlexBetween from \"components/FlexBetween\";\r\n \r\n const Navbar = () => {\r\n+\r\n+  \r\n   return <div></div>;\r\n };\r\n \r\n export default Navbar;\r\n"
+                },
+                {
+                    "date": 1691684649303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,10 @@\n import { useNavigate } from \"react-router-dom\";\r\n import FlexBetween from \"components/FlexBetween\";\r\n \r\n const Navbar = () => {\r\n+  const \r\n \r\n-  \r\n   return <div></div>;\r\n };\r\n \r\n export default Navbar;\r\n"
+                },
+                {
+                    "date": 1691684661682,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n import { useNavigate } from \"react-router-dom\";\r\n import FlexBetween from \"components/FlexBetween\";\r\n \r\n const Navbar = () => {\r\n-  const \r\n+  const {isMobilMenuToggled, setIsMobileMenuToggled}\r\n \r\n   return <div></div>;\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1691684672428,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n import { useNavigate } from \"react-router-dom\";\r\n import FlexBetween from \"components/FlexBetween\";\r\n \r\n const Navbar = () => {\r\n-  const {isMobilMenuToggled, setIsMobileMenuToggled}\r\n+  const [isMobilMenuToggled, setIsMobileMenuToggled}\r\n \r\n   return <div></div>;\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1691684678140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n import { useNavigate } from \"react-router-dom\";\r\n import FlexBetween from \"components/FlexBetween\";\r\n \r\n const Navbar = () => {\r\n-  const [isMobilMenuToggled, setIsMobileMenuToggled}\r\n+  const [isMobilMenuToggled, setIsMobileMenuToggled] = \r\n \r\n   return <div></div>;\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1691684683883,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,9 +25,9 @@\n import { useNavigate } from \"react-router-dom\";\r\n import FlexBetween from \"components/FlexBetween\";\r\n \r\n const Navbar = () => {\r\n-  const [isMobilMenuToggled, setIsMobileMenuToggled] = \r\n+  const [isMobilMenuToggled, setIsMobileMenuToggled] = useState\r\n \r\n   return <div></div>;\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1691684694960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -25,10 +25,11 @@\n import { useNavigate } from \"react-router-dom\";\r\n import FlexBetween from \"components/FlexBetween\";\r\n \r\n const Navbar = () => {\r\n-  const [isMobilMenuToggled, setIsMobileMenuToggled] = useState\r\n+  const [isMobilMenuToggled, setIsMobileMenuToggled] = useState(false)\r\n \r\n+  \r\n   return <div></div>;\r\n };\r\n \r\n export default Navbar;\r\n"
+                },
+                {
+                    "date": 1691684705835,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,10 +26,12 @@\n import FlexBetween from \"components/FlexBetween\";\r\n \r\n const Navbar = () => {\r\n   const [isMobilMenuToggled, setIsMobileMenuToggled] = useState(false)\r\n+  const dispatch = useDispatch()\r\n+  const navigate = useNavigate()\r\n+  \r\n \r\n-  \r\n   return <div></div>;\r\n };\r\n \r\n export default Navbar;\r\n"
+                },
+                {
+                    "date": 1691684717768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,9 +28,9 @@\n const Navbar = () => {\r\n   const [isMobilMenuToggled, setIsMobileMenuToggled] = useState(false)\r\n   const dispatch = useDispatch()\r\n   const navigate = useNavigate()\r\n-  \r\n+  const user = useSelector((state)=> state.user)\r\n \r\n   return <div></div>;\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1691684728586,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,8 +30,18 @@\n   const dispatch = useDispatch()\r\n   const navigate = useNavigate()\r\n   const user = useSelector((state)=> state.user)\r\n \r\n+  const isNonMobileScreens = useMediaQuery(\"(min-width: 1000px)\");\r\n+\r\n+  const theme = useTheme();\r\n+  const neutralLight = theme.palette.neutral.light;\r\n+  const dark = theme.palette.neutral.dark;\r\n+  const background = theme.palette.background.default;\r\n+  const primaryLight = theme.palette.primary.light;\r\n+  const alt = theme.palette.background.alt;\r\n+\r\n+  const fullName = `${user.firstName} ${user.lastName}`;\r\n   return <div></div>;\r\n };\r\n \r\n export default Navbar;\r\n"
+                },
+                {
+                    "date": 1691684799701,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,8 @@\n   const [isMobilMenuToggled, setIsMobileMenuToggled] = useState(false)\r\n   const dispatch = useDispatch()\r\n   const navigate = useNavigate()\r\n   const user = useSelector((state)=> state.user)\r\n-\r\n   const isNonMobileScreens = useMediaQuery(\"(min-width: 1000px)\");\r\n \r\n   const theme = useTheme();\r\n   const neutralLight = theme.palette.neutral.light;\r\n@@ -40,8 +39,9 @@\n   const primaryLight = theme.palette.primary.light;\r\n   const alt = theme.palette.background.alt;\r\n \r\n   const fullName = `${user.firstName} ${user.lastName}`;\r\n+\r\n   return <div></div>;\r\n };\r\n \r\n export default Navbar;\r\n"
+                },
+                {
+                    "date": 1691685096378,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,8 +40,8 @@\n   const alt = theme.palette.background.alt;\r\n \r\n   const fullName = `${user.firstName} ${user.lastName}`;\r\n \r\n-  return <div></div>;\r\n+  retur n <div></div>;\r\n };\r\n \r\n export default Navbar;\r\n"
+                },
+                {
+                    "date": 1691685102537,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,8 +40,8 @@\n   const alt = theme.palette.background.alt;\r\n \r\n   const fullName = `${user.firstName} ${user.lastName}`;\r\n \r\n-  retur n <div></div>;\r\n+  return <div></div>;\r\n };\r\n \r\n export default Navbar;\r\n"
+                },
+                {
+                    "date": 1691685123721,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,8 +40,9 @@\n   const alt = theme.palette.background.alt;\r\n \r\n   const fullName = `${user.firstName} ${user.lastName}`;\r\n \r\n-  return <div></div>;\r\n+  return (\r\n+  <div></div>;\r\n };\r\n \r\n export default Navbar;\r\n"
+                },
+                {
+                    "date": 1691685146438,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,8 +41,10 @@\n \r\n   const fullName = `${user.firstName} ${user.lastName}`;\r\n \r\n   return (\r\n-  <div></div>;\r\n+    \r\n+  \r\n+  );\r\n };\r\n \r\n export default Navbar;\r\n"
+                },
+                {
+                    "date": 1691685151983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,11 @@\n \r\n   const fullName = `${user.firstName} ${user.lastName}`;\r\n \r\n   return (\r\n-    \r\n+    <FlexBetween>\r\n+      \r\n+    </FlexBetween>\r\n   \r\n   );\r\n };\r\n \r\n"
+                },
+                {
+                    "date": 1691685162154,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,10 +41,10 @@\n \r\n   const fullName = `${user.firstName} ${user.lastName}`;\r\n \r\n   return (\r\n-    <FlexBetween>\r\n-      \r\n+    <FlexBetween padding=\"1rem 6%\" background>\r\n+\r\n     </FlexBetween>\r\n   \r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1691685167824,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \r\n   const fullName = `${user.firstName} ${user.lastName}`;\r\n \r\n   return (\r\n-    <FlexBetween padding=\"1rem 6%\" background>\r\n+    <FlexBetween padding=\"1rem 6%\" backgroundColor={alt}>\r\n \r\n     </FlexBetween>\r\n   \r\n   );\r\n"
+                },
+                {
+                    "date": 1691685252495,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n   const fullName = `${user.firstName} ${user.lastName}`;\r\n \r\n   return (\r\n     <FlexBetween padding=\"1rem 6%\" backgroundColor={alt}>\r\n-\r\n+        \r\n     </FlexBetween>\r\n   \r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1691685272296,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,9 @@\n   const fullName = `${user.firstName} ${user.lastName}`;\r\n \r\n   return (\r\n     <FlexBetween padding=\"1rem 6%\" backgroundColor={alt}>\r\n-        \r\n+        <FlexBetween></FlexBetween>\r\n     </FlexBetween>\r\n   \r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1691685285604,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,9 +42,11 @@\n   const fullName = `${user.firstName} ${user.lastName}`;\r\n \r\n   return (\r\n     <FlexBetween padding=\"1rem 6%\" backgroundColor={alt}>\r\n-        <FlexBetween></FlexBetween>\r\n+        <FlexBetween gap=>\r\n+\r\n+        </FlexBetween>\r\n     </FlexBetween>\r\n   \r\n   );\r\n };\r\n"
+                },
+                {
+                    "date": 1691685297374,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,10 +42,10 @@\n   const fullName = `${user.firstName} ${user.lastName}`;\r\n \r\n   return (\r\n     <FlexBetween padding=\"1rem 6%\" backgroundColor={alt}>\r\n-        <FlexBetween gap=>\r\n-\r\n+        <FlexBetween gap=\"1.75rem\">\r\n+            \r\n         </FlexBetween>\r\n     </FlexBetween>\r\n   \r\n   );\r\n"
+                },
+                {
+                    "date": 1691686949073,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import React, { useState } from \"react\";\r\n+import { useState } from \"react\";\r\n import {\r\n   Box,\r\n   IconButton,\r\n   InputBase,\r\n@@ -25,12 +25,12 @@\n import { useNavigate } from \"react-router-dom\";\r\n import FlexBetween from \"components/FlexBetween\";\r\n \r\n const Navbar = () => {\r\n-  const [isMobilMenuToggled, setIsMobileMenuToggled] = useState(false)\r\n-  const dispatch = useDispatch()\r\n-  const navigate = useNavigate()\r\n-  const user = useSelector((state)=> state.user)\r\n+  const [isMobileMenuToggled, setIsMobileMenuToggled] = useState(false);\r\n+  const dispatch = useDispatch();\r\n+  const navigate = useNavigate();\r\n+  const user = useSelector((state) => state.user);\r\n   const isNonMobileScreens = useMediaQuery(\"(min-width: 1000px)\");\r\n \r\n   const theme = useTheme();\r\n   const neutralLight = theme.palette.neutral.light;\r\n@@ -42,13 +42,156 @@\n   const fullName = `${user.firstName} ${user.lastName}`;\r\n \r\n   return (\r\n     <FlexBetween padding=\"1rem 6%\" backgroundColor={alt}>\r\n-        <FlexBetween gap=\"1.75rem\">\r\n-            \r\n+      <FlexBetween gap=\"1.75rem\">\r\n+        <Typography\r\n+          fontWeight=\"bold\"\r\n+          fontSize=\"clamp(1rem, 2rem, 2.25rem)\"\r\n+          color=\"primary\"\r\n+          onClick={() => navigate(\"/home\")}\r\n+          sx={{\r\n+            \"&:hover\": {\r\n+              color: primaryLight,\r\n+              cursor: \"pointer\",\r\n+            },\r\n+          }}\r\n+        >\r\n+          Sociopedia\r\n+        </Typography>\r\n+        {isNonMobileScreens && (\r\n+          <FlexBetween\r\n+            backgroundColor={neutralLight}\r\n+            borderRadius=\"9px\"\r\n+            gap=\"3rem\"\r\n+            padding=\"0.1rem 1.5rem\"\r\n+          >\r\n+            <InputBase placeholder=\"Search...\" />\r\n+            <IconButton>\r\n+              <Search />\r\n+            </IconButton>\r\n+          </FlexBetween>\r\n+        )}\r\n+      </FlexBetween>\r\n+\r\n+      {/* DESKTOP NAV */}\r\n+      {isNonMobileScreens ? (\r\n+        <FlexBetween gap=\"2rem\">\r\n+          <IconButton onClick={() => dispatch(setMode())}>\r\n+            {theme.palette.mode === \"dark\" ? (\r\n+              <DarkMode sx={{ fontSize: \"25px\" }} />\r\n+            ) : (\r\n+              <LightMode sx={{ color: dark, fontSize: \"25px\" }} />\r\n+            )}\r\n+          </IconButton>\r\n+          <Message sx={{ fontSize: \"25px\" }} />\r\n+          <Notifications sx={{ fontSize: \"25px\" }} />\r\n+          <Help sx={{ fontSize: \"25px\" }} />\r\n+          <FormControl variant=\"standard\" value={fullName}>\r\n+            <Select\r\n+              value={fullName}\r\n+              sx={{\r\n+                backgroundColor: neutralLight,\r\n+                width: \"150px\",\r\n+                borderRadius: \"0.25rem\",\r\n+                p: \"0.25rem 1rem\",\r\n+                \"& .MuiSvgIcon-root\": {\r\n+                  pr: \"0.25rem\",\r\n+                  width: \"3rem\",\r\n+                },\r\n+                \"& .MuiSelect-select:focus\": {\r\n+                  backgroundColor: neutralLight,\r\n+                },\r\n+              }}\r\n+              input={<InputBase />}\r\n+            >\r\n+              <MenuItem value={fullName}>\r\n+                <Typography>{fullName}</Typography>\r\n+              </MenuItem>\r\n+              <MenuItem onClick={() => dispatch(setLogout())}>Log Out</MenuItem>\r\n+            </Select>\r\n+          </FormControl>\r\n         </FlexBetween>\r\n+      ) : (\r\n+        <IconButton\r\n+          onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}\r\n+        >\r\n+          <Menu />\r\n+        </IconButton>\r\n+      )}\r\n+\r\n+      {/* MOBILE NAV */}\r\n+      {!isNonMobileScreens && isMobileMenuToggled && (\r\n+        <Box\r\n+          position=\"fixed\"\r\n+          right=\"0\"\r\n+          bottom=\"0\"\r\n+          height=\"100%\"\r\n+          zIndex=\"10\"\r\n+          maxWidth=\"500px\"\r\n+          minWidth=\"300px\"\r\n+          backgroundColor={background}\r\n+        >\r\n+          {/* CLOSE ICON */}\r\n+          <Box display=\"flex\" justifyContent=\"flex-end\" p=\"1rem\">\r\n+            <IconButton\r\n+              onClick={() => setIsMobileMenuToggled(!isMobileMenuToggled)}\r\n+            >\r\n+              <Close />\r\n+            </IconButton>\r\n+          </Box>\r\n+\r\n+          {/* MENU ITEMS */}\r\n+          <FlexBetween\r\n+            display=\"flex\"\r\n+            flexDirection=\"column\"\r\n+            justifyContent=\"center\"\r\n+            alignItems=\"center\"\r\n+            gap=\"3rem\"\r\n+          >\r\n+            <IconButton\r\n+              onClick={() => dispatch(setMode())}\r\n+              sx={{ fontSize: \"25px\" }}\r\n+            >\r\n+              {theme.palette.mode === \"dark\" ? (\r\n+                <DarkMode sx={{ fontSize: \"25px\" }} />\r\n+              ) : (\r\n+                <LightMode sx={{ color: dark, fontSize: \"25px\" }} />\r\n+              )}\r\n+            </IconButton>\r\n+            <Message sx={{ fontSize: \"25px\" }} />\r\n+            <Notifications sx={{ fontSize: \"25px\" }} />\r\n+            <Help sx={{ fontSize: \"25px\" }} />\r\n+            <FormControl variant=\"standard\" value={fullName}>\r\n+              <Select\r\n+                value={fullName}\r\n+                sx={{\r\n+                  backgroundColor: neutralLight,\r\n+                  width: \"150px\",\r\n+                  borderRadius: \"0.25rem\",\r\n+                  p: \"0.25rem 1rem\",\r\n+                  \"& .MuiSvgIcon-root\": {\r\n+                    pr: \"0.25rem\",\r\n+                    width: \"3rem\",\r\n+                  },\r\n+                  \"& .MuiSelect-select:focus\": {\r\n+                    backgroundColor: neutralLight,\r\n+                  },\r\n+                }}\r\n+                input={<InputBase />}\r\n+              >\r\n+                <MenuItem value={fullName}>\r\n+                  <Typography>{fullName}</Typography>\r\n+                </MenuItem>\r\n+                <MenuItem onClick={() => dispatch(setLogout())}>\r\n+                  Log Out\r\n+                </MenuItem>\r\n+              </Select>\r\n+            </FormControl>\r\n+          </FlexBetween>\r\n+        </Box>\r\n+      )}\r\n     </FlexBetween>\r\n-  \r\n   );\r\n };\r\n \r\n-export default Navbar;\r\n+export default Navbar;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1691671017349,
+            "name": "Commit-0",
+            "content": "import React from 'react'\r\n\r\nconst index = () => {\r\n  return (\r\n    <div>\r\n      \r\n    </div>\r\n  )\r\n}\r\n\r\nexport default index\r\n"
+        }
+    ]
+}

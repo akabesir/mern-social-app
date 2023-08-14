@@ -1,0 +1,18 @@
+{
+    "sourceFile": "client/src/scenes/widgets/FriendListWidget.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 0,
+            "patches": [
+                {
+                    "date": 1692044034429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                }
+            ],
+            "date": 1692044034429,
+            "name": "Commit-0",
+            "content": "import { Box, Typography, useTheme } from \"@mui/material\";\r\nimport Friend from \"components/Friend\";\r\nimport WidgetWrapper from \"components/WidgetWrapper\";\r\nimport { useEffect } from \"react\";\r\nimport { useDispatch, useSelector } from \"react-redux\";\r\nimport { setFriends } from \"state\";\r\n\r\nconst FriendListWidget = ({ userId }) => {\r\n  const dispatch = useDispatch();\r\n  const { palette } = useTheme();\r\n  const token = useSelector((state) => state.token);\r\n  const friends = useSelector((state) => state.user.friends);\r\n\r\n  const getFriends = async () => {\r\n    const response = await fetch(\r\n      `http://localhost:3001/users/${userId}/friends`,\r\n      {\r\n        method: \"GET\",\r\n        headers: { Authorization: `Bearer ${token}` },\r\n      }\r\n    );\r\n    const data = await response.json();\r\n    dispatch(setFriends({ friends: data }));\r\n  };\r\n\r\n  useEffect(() => {\r\n    getFriends();\r\n  }, []); // eslint-disable-line react-hooks/exhaustive-deps\r\n\r\n  return (\r\n    <WidgetWrapper>\r\n      <Typography\r\n        color={palette.neutral.dark}\r\n        variant=\"h5\"\r\n        fontWeight=\"500\"\r\n        sx={{ mb: \"1.5rem\" }}\r\n      >\r\n        Friend List\r\n      </Typography>\r\n      <Box display=\"flex\" flexDirection=\"column\" gap=\"1.5rem\">\r\n        {friends.map((friend) => (\r\n          <Friend\r\n            key={friend._id}\r\n            friendId={friend._id}\r\n            name={`${friend.firstName} ${friend.lastName}`}\r\n            subtitle={friend.occupation}\r\n            userPicturePath={friend.picturePath}\r\n          />\r\n        ))}\r\n      </Box>\r\n    </WidgetWrapper>\r\n  );\r\n};\r\n\r\nexport default FriendListWidget;"
+        }
+    ]
+}

@@ -1,0 +1,58 @@
+{
+    "sourceFile": "middleware/auth.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 10,
+            "patches": [
+                {
+                    "date": 1691512090127,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691512109280,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,3 @@\n-import { Jwt } from \"jsonwebtoken\";\n\\ No newline at end of file\n+import { Jwt } from \"jsonwebtoken\";\r\n+\r\n+export const verifyToken = async (req,res,next)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691512115646,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n import { Jwt } from \"jsonwebtoken\";\r\n \r\n-export const verifyToken = async (req,res,next)\n\\ No newline at end of file\n+export const verifyToken = async (req,res,next) =>\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691512130362,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,5 @@\n import { Jwt } from \"jsonwebtoken\";\r\n \r\n-export const verifyToken = async (req,res,next) =>\n\\ No newline at end of file\n+export const verifyToken = async (req,res,next) =>{\r\n+    try\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691512139140,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,9 @@\n import { Jwt } from \"jsonwebtoken\";\r\n \r\n export const verifyToken = async (req,res,next) =>{\r\n-    try\r\n+    try{\r\n+\r\n+    }catch (err){\r\n+        \r\n+    }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691512150775,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n-import { Jwt } from \"jsonwebtoken\";\r\n+import { jwt } from \"jsonwebtoken\";\r\n \r\n export const verifyToken = async (req,res,next) =>{\r\n     try{\r\n \r\n     }catch (err){\r\n-        \r\n+\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691512158068,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,5 @@\n-import { jwt } from \"jsonwebtoken\";\r\n+import { Jwt } from \"jsonwebtoken\";\r\n \r\n export const verifyToken = async (req,res,next) =>{\r\n     try{\r\n \r\n"
+                },
+                {
+                    "date": 1691512189338,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n-import { Jwt } from \"jsonwebtoken\";\r\n+import { jwt } from \"jsonwebtoken\";\r\n \r\n export const verifyToken = async (req,res,next) =>{\r\n     try{\r\n \r\n     }catch (err){\r\n-\r\n+        res.status(500)\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691512195030,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n export const verifyToken = async (req,res,next) =>{\r\n     try{\r\n \r\n     }catch (err){\r\n-        res.status(500)\r\n+        res.status(500).json({})\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691512201968,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,7 +3,7 @@\n export const verifyToken = async (req,res,next) =>{\r\n     try{\r\n \r\n     }catch (err){\r\n-        res.status(500).json({})\r\n+        res.status(500).json({error:err.message})\r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691512208089,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { jwt } from \"jsonwebtoken\";\r\n \r\n export const verifyToken = async (req,res,next) =>{\r\n     try{\r\n-\r\n+        \r\n     }catch (err){\r\n         res.status(500).json({error:err.message})\r\n     }\r\n }\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1691512090127,
+            "name": "Commit-0",
+            "content": "import { Jwt } from \"jsonwebtoken\";"
+        }
+    ]
+}

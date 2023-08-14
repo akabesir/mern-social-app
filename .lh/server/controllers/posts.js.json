@@ -1,0 +1,26 @@
+{
+    "sourceFile": "server/controllers/posts.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1691779883808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691779956054,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import Post from \"../modells/Post.js\";\r\n import User from \"../modells/User.js\";\r\n-\r\n+js\r\n /* CREATE */\r\n export const createPost = async (req, res) => {\r\n   try {\r\n     const { userId, description, picturePath } = req.body;\r\n"
+                },
+                {
+                    "date": 1691779963175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,8 @@\n+\r\n import Post from \"../modells/Post.js\";\r\n import User from \"../modells/User.js\";\r\n-js\r\n+\r\n /* CREATE */\r\n export const createPost = async (req, res) => {\r\n   try {\r\n     const { userId, description, picturePath } = req.body;\r\n"
+                }
+            ],
+            "date": 1691779883808,
+            "name": "Commit-0",
+            "content": "import Post from \"../modells/Post.js\";\r\nimport User from \"../modells/User.js\";\r\n\r\n/* CREATE */\r\nexport const createPost = async (req, res) => {\r\n  try {\r\n    const { userId, description, picturePath } = req.body;\r\n    const user = await User.findById(userId);\r\n    const newPost = new Post({\r\n      userId,\r\n      firstName: user.firstName,\r\n      lastName: user.lastName,\r\n      location: user.location,\r\n      description,\r\n      userPicturePath: user.picturePath,\r\n      picturePath,\r\n      likes: {},\r\n      comments: [],\r\n    });\r\n    await newPost.save();\r\n\r\n    const post = await Post.find();\r\n    res.status(201).json(post);\r\n  } catch (err) {\r\n    res.status(409).json({ message: err.message });\r\n  }\r\n};\r\n\r\n/* READ */\r\nexport const getFeedPosts = async (req, res) => {\r\n  try {\r\n    const post = await Post.find();\r\n    res.status(200).json(post);\r\n  } catch (err) {\r\n    res.status(404).json({ message: err.message });\r\n  }\r\n};\r\n\r\nexport const getUserPosts = async (req, res) => {\r\n  try {\r\n    const { userId } = req.params;\r\n    const post = await Post.find({ userId });\r\n    res.status(200).json(post);\r\n  } catch (err) {\r\n    res.status(404).json({ message: err.message });\r\n  }\r\n};\r\n\r\n/* UPDATE */\r\nexport const likePost = async (req, res) => {\r\n  try {\r\n    const { id } = req.params;\r\n    const { userId } = req.body;\r\n    const post = await Post.findById(id);\r\n    const isLiked = post.likes.get(userId);\r\n\r\n    if (isLiked) {\r\n      post.likes.delete(userId);\r\n    } else {\r\n      post.likes.set(userId, true);\r\n    }\r\n\r\n    const updatedPost = await Post.findByIdAndUpdate(\r\n      id,\r\n      { likes: post.likes },\r\n      { new: true }\r\n    );\r\n\r\n    res.status(200).json(updatedPost);\r\n  } catch (err) {\r\n    res.status(404).json({ message: err.message });\r\n  }\r\n};"
+        }
+    ]
+}

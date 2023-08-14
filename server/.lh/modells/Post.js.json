@@ -1,0 +1,26 @@
+{
+    "sourceFile": "modells/Post.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 2,
+            "patches": [
+                {
+                    "date": 1691519848429,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691519916134,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,35 @@\n- \n\\ No newline at end of file\n+import mongoose from \"mongoose\";\r\n+\r\n+const postSchema = mongoose.Schema(\r\n+  {\r\n+    userId: {\r\n+      type: String,\r\n+      required: true,\r\n+    },\r\n+    firstName: {\r\n+      type: String,\r\n+      required: true,\r\n+    },\r\n+    lastName: {\r\n+      type: String,\r\n+      required: true,\r\n+    },\r\n+    location: String,\r\n+    description: String,\r\n+    picturePath: String,\r\n+    userPicturePath: String,\r\n+    likes: {\r\n+      type: Map,\r\n+      of: Boolean,\r\n+    },\r\n+    comments: {\r\n+      type: Array,\r\n+      default: [],\r\n+    },\r\n+  },\r\n+  { timestamps: true }\r\n+);\r\n+\r\n+const Post = mongoose.model(\"Post\", postSchema);\r\n+\r\n+export default Post;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691520139602,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,5 +31,5 @@\n );\r\n \r\n const Post = mongoose.model(\"Post\", postSchema);\r\n \r\n-export default Post;\n\\ No newline at end of file\n+export default Post; \n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1691519848429,
+            "name": "Commit-0",
+            "content": " "
+        }
+    ]
+}

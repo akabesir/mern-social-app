@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client/src/index.css",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1691670294044,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691670314808,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,10 @@\n+@import url(\"https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;700&display=swap\");\n+\n+html,\n+body,\n+#root,\n+.app {\n+  height: 100%;\n+  width: 100%;\n+  font-family: \"Rubik\", sans-serif;\n+}\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1691670294044,
+            "name": "Commit-0",
+            "content": ""
+        }
+    ]
+}

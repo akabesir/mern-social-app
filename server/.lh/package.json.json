@@ -1,0 +1,22 @@
+{
+    "sourceFile": "package.json",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1691444979880,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691444987300,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,9 +15,9 @@\n   },\n   \"name\": \"server\",\n   \"version\": \"1.0.0\",\n   \"main\": \"index.js\",\n-  \"type\"\n+  \"type\" : \"module\",\n   \"devDependencies\": {},\n   \"scripts\": {\n     \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n   },\n"
+                }
+            ],
+            "date": 1691444979880,
+            "name": "Commit-0",
+            "content": "{\n  \"dependencies\": {\n    \"bcrypt\": \"^5.1.0\",\n    \"body-parser\": \"^1.20.2\",\n    \"cors\": \"^2.8.5\",\n    \"dotenv\": \"^16.3.1\",\n    \"express\": \"^4.18.2\",\n    \"gridfs-stream\": \"^1.1.1\",\n    \"helmet\": \"^7.0.0\",\n    \"jsonwebtoken\": \"^9.0.1\",\n    \"mongoose\": \"^7.4.2\",\n    \"morgan\": \"^1.10.0\",\n    \"multer\": \"^1.4.4\",\n    \"multer-gridfs-storage\": \"^5.0.2\"\n  },\n  \"name\": \"server\",\n  \"version\": \"1.0.0\",\n  \"main\": \"index.js\",\n  \"type\"\n  \"devDependencies\": {},\n  \"scripts\": {\n    \"test\": \"echo \\\"Error: no test specified\\\" && exit 1\"\n  },\n  \"keywords\": [],\n  \"author\": \"\",\n  \"license\": \"ISC\",\n  \"description\": \"\"\n}\n"
+        }
+    ]
+}

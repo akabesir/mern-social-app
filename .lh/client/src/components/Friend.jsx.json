@@ -1,0 +1,154 @@
+{
+    "sourceFile": "client/src/components/Friend.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 34,
+            "patches": [
+                {
+                    "date": 1691998108923,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691998117372,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,11 @@\n-import React from 'react'\r\n+import { PersonAddOutlined, PersonRemoveOutlined } from \"@mui/icons-material\";\r\n+import { Box, IconButton, Typography, useTheme } from \"@mui/material\";\r\n+import { useDispatch, useSelector } from \"react-redux\";\r\n+import { useNavigate } from \"react-router-dom\";\r\n+import { setFriends } from \"state\";\r\n+import FlexBetween from \"./FlexBetween\";\r\n+import UserImage from \"./UserImage\";\r\n \r\n const Friend = () => {\r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1691998382281,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import { setFriends } from \"state\";\r\n import FlexBetween from \"./FlexBetween\";\r\n import UserImage from \"./UserImage\";\r\n \r\n-const Friend = () => {\r\n+const Friend = ({}) => {\r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1691998388786,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import { setFriends } from \"state\";\r\n import FlexBetween from \"./FlexBetween\";\r\n import UserImage from \"./UserImage\";\r\n \r\n-const Friend = ({}) => {\r\n+const Friend = ({friendId,}) => {\r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1691998396161,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import { setFriends } from \"state\";\r\n import FlexBetween from \"./FlexBetween\";\r\n import UserImage from \"./UserImage\";\r\n \r\n-const Friend = ({friendId,}) => {\r\n+const Friend = ({friendId, name, subtitle, userPicturePath}) => {\r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1691998416870,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,15 @@\n import FlexBetween from \"./FlexBetween\";\r\n import UserImage from \"./UserImage\";\r\n \r\n const Friend = ({friendId, name, subtitle, userPicturePath}) => {\r\n+\r\n+\r\n+  const { palette } = useTheme();\r\n+  const primaryLight = palette.primary.light;\r\n+  const primaryDark = palette.primary.dark;\r\n+  const main = palette.neutral.main;\r\n+  const medium = palette.neutral.medium;\r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1691998423570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,10 +6,10 @@\n import FlexBetween from \"./FlexBetween\";\r\n import UserImage from \"./UserImage\";\r\n \r\n const Friend = ({friendId, name, subtitle, userPicturePath}) => {\r\n+  \r\n \r\n-\r\n   const { palette } = useTheme();\r\n   const primaryLight = palette.primary.light;\r\n   const primaryDark = palette.primary.dark;\r\n   const main = palette.neutral.main;\r\n"
+                },
+                {
+                    "date": 1691998431258,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,9 +6,13 @@\n import FlexBetween from \"./FlexBetween\";\r\n import UserImage from \"./UserImage\";\r\n \r\n const Friend = ({friendId, name, subtitle, userPicturePath}) => {\r\n-  \r\n+  const dispatch = useDispatch();\r\n+  const navigate = useNavigate();\r\n+  const { _id } = useSelector((state) => state.user);\r\n+  const token = useSelector((state) => state.token);\r\n+  const friends = useSelector((state) => state.user.friends);\r\n \r\n   const { palette } = useTheme();\r\n   const primaryLight = palette.primary.light;\r\n   const primaryDark = palette.primary.dark;\r\n"
+                },
+                {
+                    "date": 1691998437587,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,8 +17,10 @@\n   const primaryLight = palette.primary.light;\r\n   const primaryDark = palette.primary.dark;\r\n   const main = palette.neutral.main;\r\n   const medium = palette.neutral.medium;\r\n+\r\n+  \r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1691998510717,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   const primaryDark = palette.primary.dark;\r\n   const main = palette.neutral.main;\r\n   const medium = palette.neutral.medium;\r\n \r\n-  \r\n+  const isFriend = \r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1691998522003,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   const primaryDark = palette.primary.dark;\r\n   const main = palette.neutral.main;\r\n   const medium = palette.neutral.medium;\r\n \r\n-  const isFriend = \r\n+  const isFriend = friends.find((friend) => frined_)\r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1691998528335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   const primaryDark = palette.primary.dark;\r\n   const main = palette.neutral.main;\r\n   const medium = palette.neutral.medium;\r\n \r\n-  const isFriend = friends.find((friend) => frined_)\r\n+  const isFriend = friends.find((friend) => frined._id === friendId)\r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1691998547959,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -19,8 +19,10 @@\n   const main = palette.neutral.main;\r\n   const medium = palette.neutral.medium;\r\n \r\n   const isFriend = friends.find((friend) => frined._id === friendId)\r\n+\r\n+  \r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1691998558196,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,11 @@\n   const medium = palette.neutral.medium;\r\n \r\n   const isFriend = friends.find((friend) => frined._id === friendId)\r\n \r\n-  \r\n+  const patchFriend = async() => {\r\n+    \r\n+  }\r\n   return (\r\n     <div>\r\n       \r\n     </div>\r\n"
+                },
+                {
+                    "date": 1691998589335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \r\n   const isFriend = friends.find((friend) => frined._id === friendId)\r\n \r\n   const patchFriend = async() => {\r\n-    \r\n+    const response = await fetch()\r\n   }\r\n   return (\r\n     <div>\r\n       \r\n"
+                },
+                {
+                    "date": 1691998598807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \r\n   const isFriend = friends.find((friend) => frined._id === friendId)\r\n \r\n   const patchFriend = async() => {\r\n-    const response = await fetch()\r\n+    const response = await fetch(`http`)\r\n   }\r\n   return (\r\n     <div>\r\n       \r\n"
+                },
+                {
+                    "date": 1691998604452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \r\n   const isFriend = friends.find((friend) => frined._id === friendId)\r\n \r\n   const patchFriend = async() => {\r\n-    const response = await fetch(`http`)\r\n+    const response = await fetch(`http://localhost:3001`)\r\n   }\r\n   return (\r\n     <div>\r\n       \r\n"
+                },
+                {
+                    "date": 1691998610095,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \r\n   const isFriend = friends.find((friend) => frined._id === friendId)\r\n \r\n   const patchFriend = async() => {\r\n-    const response = await fetch(`http://localhost:3001`)\r\n+    const response = await fetch(`http://localhost:3001/users/${}`)\r\n   }\r\n   return (\r\n     <div>\r\n       \r\n"
+                },
+                {
+                    "date": 1691998615699,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -0,0 +1,34 @@\n+import { PersonAddOutlined, PersonRemoveOutlined } from \"@mui/icons-material\";\r\n+import { Box, IconButton, Typography, useTheme } from \"@mui/material\";\r\n+import { useDispatch, useSelector } from \"react-redux\";\r\n+import { useNavigate } from \"react-router-dom\";\r\n+import { setFriends } from \"state\";\r\n+import FlexBetween from \"./FlexBetween\";\r\n+import UserImage from \"./UserImage\";\r\n+\r\n+const Friend = ({friendId, name, subtitle, userPicturePath}) => {\r\n+  const dispatch = useDispatch();\r\n+  const navigate = useNavigate();\r\n+  const { _id } = useSelector((state) => state.user);\r\n+  const token = useSelector((state) => state.token);\r\n+  const friends = useSelector((state) => state.user.friends);\r\n+\r\n+  const { palette } = useTheme();\r\n+  const primaryLight = palette.primary.light;\r\n+  const primaryDark = palette.primary.dark;\r\n+  const main = palette.neutral.main;\r\n+  const medium = palette.neutral.medium;\r\n+\r\n+  const isFriend = friends.find((friend) => frined._id === friendId)\r\n+\r\n+  const patchFriend = async() => {\r\n+    const response = await fetch(`http://localhost:3001/users/${_id}/$`)\r\n+  }\r\n+  return (\r\n+    <div>\r\n+      \r\n+    </div>\r\n+  )\r\n+}\r\n+\r\n+export default Friend\r\n"
+                },
+                {
+                    "date": 1691998620970,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n \r\n   const isFriend = friends.find((friend) => frined._id === friendId)\r\n \r\n   const patchFriend = async() => {\r\n-    const response = await fetch(`http://localhost:3001/users/${_id}/$`)\r\n+    const response = await fetch(`http://localhost:3001/users/${_id}/${friendId}`)\r\n   }\r\n   return (\r\n     <div>\r\n       \r\n@@ -31,38 +31,4 @@\n   )\r\n }\r\n \r\n export default Friend\r\n-import { PersonAddOutlined, PersonRemoveOutlined } from \"@mui/icons-material\";\r\n-import { Box, IconButton, Typography, useTheme } from \"@mui/material\";\r\n-import { useDispatch, useSelector } from \"react-redux\";\r\n-import { useNavigate } from \"react-router-dom\";\r\n-import { setFriends } from \"state\";\r\n-import FlexBetween from \"./FlexBetween\";\r\n-import UserImage from \"./UserImage\";\r\n-\r\n-const Friend = ({friendId, name, subtitle, userPicturePath}) => {\r\n-  const dispatch = useDispatch();\r\n-  const navigate = useNavigate();\r\n-  const { _id } = useSelector((state) => state.user);\r\n-  const token = useSelector((state) => state.token);\r\n-  const friends = useSelector((state) => state.user.friends);\r\n-\r\n-  const { palette } = useTheme();\r\n-  const primaryLight = palette.primary.light;\r\n-  const primaryDark = palette.primary.dark;\r\n-  const main = palette.neutral.main;\r\n-  const medium = palette.neutral.medium;\r\n-\r\n-  const isFriend = friends.find((friend) => frined._id === friendId)\r\n-\r\n-  const patchFriend = async() => {\r\n-    const response = await fetch(`http://localhost:3001/users/${}`)\r\n-  }\r\n-  return (\r\n-    <div>\r\n-      \r\n-    </div>\r\n-  )\r\n-}\r\n-\r\n-export default Friend\r\n"
+                },
+                {
+                    "date": 1691998631909,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,11 @@\n \r\n   const isFriend = friends.find((friend) => frined._id === friendId)\r\n \r\n   const patchFriend = async() => {\r\n-    const response = await fetch(`http://localhost:3001/users/${_id}/${friendId}`)\r\n+    const response = await fetch(`http://localhost:3001/users/${_id}/${friendId}`, {\r\n+      \r\n+    })\r\n   }\r\n   return (\r\n     <div>\r\n       \r\n"
+                },
+                {
+                    "date": 1691998638622,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,9 @@\n   const isFriend = friends.find((friend) => frined._id === friendId)\r\n \r\n   const patchFriend = async() => {\r\n     const response = await fetch(`http://localhost:3001/users/${_id}/${friendId}`, {\r\n-      \r\n+      method: 'PATCH'\r\n     })\r\n   }\r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1691998645249,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -22,9 +22,13 @@\n   const isFriend = friends.find((friend) => frined._id === friendId)\r\n \r\n   const patchFriend = async() => {\r\n     const response = await fetch(`http://localhost:3001/users/${_id}/${friendId}`, {\r\n-      method: 'PATCH'\r\n+      method: 'PATCH',\r\n+      headers: {\r\n+        Authorization: `Bearer ${token}`,\r\n+        \"Content-Type\": \"application/json\",\r\n+      },\r\n     })\r\n   }\r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1691998657243,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n         Authorization: `Bearer ${token}`,\r\n         \"Content-Type\": \"application/json\",\r\n       },\r\n     })\r\n+    \r\n   }\r\n   return (\r\n     <div>\r\n       \r\n"
+                },
+                {
+                    "date": 1691998668983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -28,8 +28,9 @@\n         Authorization: `Bearer ${token}`,\r\n         \"Content-Type\": \"application/json\",\r\n       },\r\n     })\r\n+    const data = await response();\r\n     \r\n   }\r\n   return (\r\n     <div>\r\n"
+                },
+                {
+                    "date": 1691998674656,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         \"Content-Type\": \"application/json\",\r\n       },\r\n     })\r\n     const data = await response();\r\n-    \r\n+    dispatch(setFriends({}))\r\n   }\r\n   return (\r\n     <div>\r\n       \r\n"
+                },
+                {
+                    "date": 1691998683430,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,9 +29,9 @@\n         \"Content-Type\": \"application/json\",\r\n       },\r\n     })\r\n     const data = await response();\r\n-    dispatch(setFriends({}))\r\n+    dispatch(setFriends({friends:data}))\r\n   }\r\n   return (\r\n     <div>\r\n       \r\n"
+                },
+                {
+                    "date": 1691998750838,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,11 +32,46 @@\n     const data = await response();\r\n     dispatch(setFriends({friends:data}))\r\n   }\r\n   return (\r\n-    <div>\r\n-      \r\n-    </div>\r\n+    <FlexBetween>\r\n+    <FlexBetween gap=\"1rem\">\r\n+      <UserImage image={userPicturePath} size=\"55px\" />\r\n+      <Box\r\n+        onClick={() => {\r\n+          navigate(`/profile/${friendId}`);\r\n+          navigate(0);\r\n+        }}\r\n+      >\r\n+        <Typography\r\n+          color={main}\r\n+          variant=\"h5\"\r\n+          fontWeight=\"500\"\r\n+          sx={{\r\n+            \"&:hover\": {\r\n+              color: palette.primary.light,\r\n+              cursor: \"pointer\",\r\n+            },\r\n+          }}\r\n+        >\r\n+          {name}\r\n+        </Typography>\r\n+        <Typography color={medium} fontSize=\"0.75rem\">\r\n+          {subtitle}\r\n+        </Typography>\r\n+      </Box>\r\n+    </FlexBetween>\r\n+    <IconButton\r\n+      onClick={() => patchFriend()}\r\n+      sx={{ backgroundColor: primaryLight, p: \"0.6rem\" }}\r\n+    >\r\n+      {isFriend ? (\r\n+        <PersonRemoveOutlined sx={{ color: primaryDark }} />\r\n+      ) : (\r\n+        <PersonAddOutlined sx={{ color: primaryDark }} />\r\n+      )}\r\n+    </IconButton>\r\n+  </FlexBetween>\r\n   )\r\n }\r\n \r\n export default Friend\r\n"
+                },
+                {
+                    "date": 1692005337979,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -5,9 +5,9 @@\n import { setFriends } from \"state\";\r\n import FlexBetween from \"./FlexBetween\";\r\n import UserImage from \"./UserImage\";\r\n \r\n-const Friend = ({friendId, name, subtitle, userPicturePath}) => {\r\n+const Friend = ({ friendId, name, subtitle, userPicturePath }) => {\r\n   const dispatch = useDispatch();\r\n   const navigate = useNavigate();\r\n   const { _id } = useSelector((state) => state.user);\r\n   const token = useSelector((state) => state.token);\r\n@@ -18,60 +18,63 @@\n   const primaryDark = palette.primary.dark;\r\n   const main = palette.neutral.main;\r\n   const medium = palette.neutral.medium;\r\n \r\n-  const isFriend = friends.find((friend) => frined._id === friendId)\r\n+  const isFriend = friends.find((friend) => friend._id === friendId);\r\n \r\n-  const patchFriend = async() => {\r\n-    const response = await fetch(`http://localhost:3001/users/${_id}/${friendId}`, {\r\n-      method: 'PATCH',\r\n-      headers: {\r\n-        Authorization: `Bearer ${token}`,\r\n-        \"Content-Type\": \"application/json\",\r\n-      },\r\n-    })\r\n+  const patchFriend = async () => {\r\n+    const response = await fetch(\r\n+      `http://localhost:3001/users/${_id}/${friendId}`,\r\n+      {\r\n+        method: \"PATCH\",\r\n+        headers: {\r\n+          Authorization: `Bearer ${token}`,\r\n+          \"Content-Type\": \"application/json\",\r\n+        },\r\n+      }\r\n+    );\r\n     const data = await response();\r\n-    dispatch(setFriends({friends:data}))\r\n-  }\r\n+    dispatch(setFriends({ friends: data }));\r\n+  };\r\n   return (\r\n     <FlexBetween>\r\n-    <FlexBetween gap=\"1rem\">\r\n-      <UserImage image={userPicturePath} size=\"55px\" />\r\n-      <Box\r\n-        onClick={() => {\r\n-          navigate(`/profile/${friendId}`);\r\n-          navigate(0);\r\n-        }}\r\n-      >\r\n-        <Typography\r\n-          color={main}\r\n-          variant=\"h5\"\r\n-          fontWeight=\"500\"\r\n-          sx={{\r\n-            \"&:hover\": {\r\n-              color: palette.primary.light,\r\n-              cursor: \"pointer\",\r\n-            },\r\n+      <FlexBetween gap=\"1rem\">\r\n+        <UserImage image={userPicturePath} size=\"55px\" />\r\n+        <Box\r\n+          onClick={() => {\r\n+            navigate(`/profile/${friendId}`);\r\n+            navigate(0);\r\n           }}\r\n         >\r\n-          {name}\r\n-        </Typography>\r\n-        <Typography color={medium} fontSize=\"0.75rem\">\r\n-          {subtitle}\r\n-        </Typography>\r\n-      </Box>\r\n+          <Typography\r\n+            color={main}\r\n+            variant=\"h5\"\r\n+            fontWeight=\"500\"\r\n+            sx={{\r\n+              \"&:hover\": {\r\n+                color: palette.primary.light,\r\n+                cursor: \"pointer\",\r\n+              },\r\n+            }}\r\n+          >\r\n+            {name}\r\n+          </Typography>\r\n+          <Typography color={medium} fontSize=\"0.75rem\">\r\n+            {subtitle}\r\n+          </Typography>\r\n+        </Box>\r\n+      </FlexBetween>\r\n+      <IconButton\r\n+        onClick={() => patchFriend()}\r\n+        sx={{ backgroundColor: primaryLight, p: \"0.6rem\" }}\r\n+      >\r\n+        {isFriend ? (\r\n+          <PersonRemoveOutlined sx={{ color: primaryDark }} />\r\n+        ) : (\r\n+          <PersonAddOutlined sx={{ color: primaryDark }} />\r\n+        )}\r\n+      </IconButton>\r\n     </FlexBetween>\r\n-    <IconButton\r\n-      onClick={() => patchFriend()}\r\n-      sx={{ backgroundColor: primaryLight, p: \"0.6rem\" }}\r\n-    >\r\n-      {isFriend ? (\r\n-        <PersonRemoveOutlined sx={{ color: primaryDark }} />\r\n-      ) : (\r\n-        <PersonAddOutlined sx={{ color: primaryDark }} />\r\n-      )}\r\n-    </IconButton>\r\n-  </FlexBetween>\r\n-  )\r\n-}\r\n+  );\r\n+};\r\n \r\n-export default Friend\r\n+export default Friend;\r\n"
+                },
+                {
+                    "date": 1692043139175,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,9 +31,9 @@\n           \"Content-Type\": \"application/json\",\r\n         },\r\n       }\r\n     );\r\n-    const data = await response();\r\n+    const data = await response.json();\r\n     dispatch(setFriends({ friends: data }));\r\n   };\r\n   return (\r\n     <FlexBetween>\r\n"
+                },
+                {
+                    "date": 1692043191964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,9 @@\n   const primaryDark = palette.primary.dark;\r\n   const main = palette.neutral.main;\r\n   const medium = palette.neutral.medium;\r\n \r\n+\r\n   const isFriend = friends.find((friend) => friend._id === friendId);\r\n \r\n   const patchFriend = async () => {\r\n     const response = await fetch(\r\n"
+                },
+                {
+                    "date": 1692043283964,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,81 +1,2 @@\n-import { PersonAddOutlined, PersonRemoveOutlined } from \"@mui/icons-material\";\r\n-import { Box, IconButton, Typography, useTheme } from \"@mui/material\";\r\n-import { useDispatch, useSelector } from \"react-redux\";\r\n-import { useNavigate } from \"react-router-dom\";\r\n-import { setFriends } from \"state\";\r\n-import FlexBetween from \"./FlexBetween\";\r\n-import UserImage from \"./UserImage\";\r\n \r\n-const Friend = ({ friendId, name, subtitle, userPicturePath }) => {\r\n-  const dispatch = useDispatch();\r\n-  const navigate = useNavigate();\r\n-  const { _id } = useSelector((state) => state.user);\r\n-  const token = useSelector((state) => state.token);\r\n-  const friends = useSelector((state) => state.user.friends);\r\n-\r\n-  const { palette } = useTheme();\r\n-  const primaryLight = palette.primary.light;\r\n-  const primaryDark = palette.primary.dark;\r\n-  const main = palette.neutral.main;\r\n-  const medium = palette.neutral.medium;\r\n-\r\n-\r\n-  const isFriend = friends.find((friend) => friend._id === friendId);\r\n-\r\n-  const patchFriend = async () => {\r\n-    const response = await fetch(\r\n-      `http://localhost:3001/users/${_id}/${friendId}`,\r\n-      {\r\n-        method: \"PATCH\",\r\n-        headers: {\r\n-          Authorization: `Bearer ${token}`,\r\n-          \"Content-Type\": \"application/json\",\r\n-        },\r\n-      }\r\n-    );\r\n-    const data = await response.json();\r\n-    dispatch(setFriends({ friends: data }));\r\n-  };\r\n-  return (\r\n-    <FlexBetween>\r\n-      <FlexBetween gap=\"1rem\">\r\n-        <UserImage image={userPicturePath} size=\"55px\" />\r\n-        <Box\r\n-          onClick={() => {\r\n-            navigate(`/profile/${friendId}`);\r\n-            navigate(0);\r\n-          }}\r\n-        >\r\n-          <Typography\r\n-            color={main}\r\n-            variant=\"h5\"\r\n-            fontWeight=\"500\"\r\n-            sx={{\r\n-              \"&:hover\": {\r\n-                color: palette.primary.light,\r\n-                cursor: \"pointer\",\r\n-              },\r\n-            }}\r\n-          >\r\n-            {name}\r\n-          </Typography>\r\n-          <Typography color={medium} fontSize=\"0.75rem\">\r\n-            {subtitle}\r\n-          </Typography>\r\n-        </Box>\r\n-      </FlexBetween>\r\n-      <IconButton\r\n-        onClick={() => patchFriend()}\r\n-        sx={{ backgroundColor: primaryLight, p: \"0.6rem\" }}\r\n-      >\r\n-        {isFriend ? (\r\n-          <PersonRemoveOutlined sx={{ color: primaryDark }} />\r\n-        ) : (\r\n-          <PersonAddOutlined sx={{ color: primaryDark }} />\r\n-        )}\r\n-      </IconButton>\r\n-    </FlexBetween>\r\n-  );\r\n-};\r\n-\r\n-export default Friend;\r\n+const isFriend = friends.find((friend) => friend._id === friendId);\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1692043300343,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,81 @@\n+import { PersonAddOutlined, PersonRemoveOutlined } from \"@mui/icons-material\";\r\n+import { Box, IconButton, Typography, useTheme } from \"@mui/material\";\r\n\\ No newline at end of file\n+import { useDispatch, useSelector } from \"react-redux\";\r\n+import { useNavigate } from \"react-router-dom\";\r\n+import { setFriends } from \"state\";\r\n+import FlexBetween from \"./FlexBetween\";\r\n+import UserImage from \"./UserImage\";\r\n \r\n-const isFriend = friends.find((friend) => friend._id === friendId);\n+const Friend = ({ friendId, name, subtitle, userPicturePath }) => {\r\n+  const dispatch = useDispatch();\r\n+  const navigate = useNavigate();\r\n+  const { _id } = useSelector((state) => state.user);\r\n+  const token = useSelector((state) => state.token);\r\n+  const friends = useSelector((state) => state.user.friends);\r\n+\r\n+  const { palette } = useTheme();\r\n+  const primaryLight = palette.primary.light;\r\n+  const primaryDark = palette.primary.dark;\r\n+  const main = palette.neutral.main;\r\n+  const medium = palette.neutral.medium;\r\n+\r\n+  const isFriend = friends.find((friend) => friend._id === friendId);\r\n+\r\n+  const patchFriend = async () => {\r\n+    const response = await fetch(\r\n+      `http://localhost:3001/users/${_id}/${friendId}`,\r\n+      {\r\n+        method: \"PATCH\",\r\n+        headers: {\r\n+          Authorization: `Bearer ${token}`,\r\n+          \"Content-Type\": \"application/json\",\r\n+        },\r\n+      }\r\n+    );\r\n+    const data = await response.json();\r\n+    dispatch(setFriends({ friends: data }));\r\n+  };\r\n+\r\n+  return (\r\n+    <FlexBetween>\r\n+      <FlexBetween gap=\"1rem\">\r\n+        <UserImage image={userPicturePath} size=\"55px\" />\r\n+        <Box\r\n+          onClick={() => {\r\n+            navigate(`/profile/${friendId}`);\r\n+            navigate(0);\r\n+          }}\r\n+        >\r\n+          <Typography\r\n+            color={main}\r\n+            variant=\"h5\"\r\n+            fontWeight=\"500\"\r\n+            sx={{\r\n+              \"&:hover\": {\r\n+                color: palette.primary.light,\r\n+                cursor: \"pointer\",\r\n+              },\r\n+            }}\r\n+          >\r\n+            {name}\r\n+          </Typography>\r\n+          <Typography color={medium} fontSize=\"0.75rem\">\r\n+            {subtitle}\r\n+          </Typography>\r\n+        </Box>\r\n+      </FlexBetween>\r\n+      <IconButton\r\n+        onClick={() => patchFriend()}\r\n+        sx={{ backgroundColor: primaryLight, p: \"0.6rem\" }}\r\n+      >\r\n+        {isFriend ? (\r\n+          <PersonRemoveOutlined sx={{ color: primaryDark }} />\r\n+        ) : (\r\n+          <PersonAddOutlined sx={{ color: primaryDark }} />\r\n+        )}\r\n+      </IconButton>\r\n+    </FlexBetween>\r\n+  );\r\n+};\r\n+\r\n+export default Friend;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1692043333601,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   const primaryDark = palette.primary.dark;\r\n   const main = palette.neutral.main;\r\n   const medium = palette.neutral.medium;\r\n \r\n-  const isFriend = friends.find((friend) => friend._id === friendId);\r\n+  const isFriend = friends?.find((friend) => friend._id === friendId);\r\n \r\n   const patchFriend = async () => {\r\n     const response = await fetch(\r\n       `http://localhost:3001/users/${_id}/${friendId}`,\r\n"
+                },
+                {
+                    "date": 1692043355641,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n   const primaryDark = palette.primary.dark;\r\n   const main = palette.neutral.main;\r\n   const medium = palette.neutral.medium;\r\n \r\n-  const isFriend = friends?.find((friend) => friend._id === friendId);\r\n+  const isFriend = friends.find((friend) => friend._id === friendId);\r\n \r\n   const patchFriend = async () => {\r\n     const response = await fetch(\r\n       `http://localhost:3001/users/${_id}/${friendId}`,\r\n"
+                }
+            ],
+            "date": 1691998108923,
+            "name": "Commit-0",
+            "content": "import React from 'react'\r\n\r\nconst Friend = () => {\r\n  return (\r\n    <div>\r\n      \r\n    </div>\r\n  )\r\n}\r\n\r\nexport default Friend\r\n"
+        }
+    ]
+}

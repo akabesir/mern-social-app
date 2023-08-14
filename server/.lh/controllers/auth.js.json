@@ -1,0 +1,290 @@
+{
+    "sourceFile": "controllers/auth.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 68,
+            "patches": [
+                {
+                    "date": 1691503699334,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691503705546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,2 @@\n-import bcrypt from 'bcrypt'\n\\ No newline at end of file\n+import bcrypt from 'bcrypt'\r\n+import { Jwt } from 'jsonwebtoken'\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691503721452,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,2 +1,3 @@\n import bcrypt from 'bcrypt'\r\n-import { Jwt } from 'jsonwebtoken'\n\\ No newline at end of file\n+import { Jwt } from 'jsonwebtoken'\r\n+import User from '../models/'\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691507658411,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,3 @@\n import bcrypt from 'bcrypt'\r\n import { Jwt } from 'jsonwebtoken'\r\n-import User from '../models/'\n\\ No newline at end of file\n+import User from '../models/User.js'\r\n"
+                },
+                {
+                    "date": 1691507664836,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,3 +1,4 @@\n import bcrypt from 'bcrypt'\r\n import { Jwt } from 'jsonwebtoken'\r\n import User from '../models/User.js'\r\n+\r\n"
+                },
+                {
+                    "date": 1691507682188,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,4 +1,5 @@\n import bcrypt from 'bcrypt'\r\n import { Jwt } from 'jsonwebtoken'\r\n import User from '../models/User.js'\r\n \r\n+export const register = async (req,res)\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691507721748,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n import bcrypt from 'bcrypt'\r\n import { Jwt } from 'jsonwebtoken'\r\n import User from '../models/User.js'\r\n \r\n-export const register = async (req,res)\n\\ No newline at end of file\n+export const register = async (req,res) => {\r\n+    tr\r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691507731139,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,6 +2,10 @@\n import { Jwt } from 'jsonwebtoken'\r\n import User from '../models/User.js'\r\n \r\n export const register = async (req,res) => {\r\n-    tr\r\n+    try{\r\n+\r\n+    } catch (err){\r\n+        \r\n+    }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691507748358,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import User from '../models/User.js'\r\n \r\n export const register = async (req,res) => {\r\n     try{\r\n+        const {firstName,lastName,email,password,picturePath}\r\n+    } catch (err){\r\n \r\n-    } catch (err){\r\n-        \r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691507758591,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import User from '../models/User.js'\r\n \r\n export const register = async (req,res) => {\r\n     try{\r\n-        const {firstName,lastName,email,password,picturePath}\r\n+        const {firstName,lastName,email,password,picturePath, friends,location}\r\n     } catch (err){\r\n \r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691507775629,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import User from '../models/User.js'\r\n \r\n export const register = async (req,res) => {\r\n     try{\r\n-        const {firstName,lastName,email,password,picturePath, friends,location}\r\n+        const {firstName,lastName,email,password,picturePath, friends,location, ocuupation}\r\n     } catch (err){\r\n \r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691507787794,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,9 @@\n import User from '../models/User.js'\r\n \r\n export const register = async (req,res) => {\r\n     try{\r\n-        const {firstName,lastName,email,password,picturePath, friends,location, ocuupation}\r\n+        const {firstName,lastName,email,password,picturePath, friends,location, occupation} = req.body\r\n     } catch (err){\r\n \r\n     }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691507829391,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,20 @@\n-import bcrypt from 'bcrypt'\r\n-import { Jwt } from 'jsonwebtoken'\r\n-import User from '../models/User.js'\r\n+import bcrypt from \"bcrypt\";\r\n+import { Jwt } from \"jsonwebtoken\";\r\n+import User from \"../models/User.js\";\r\n \r\n-export const register = async (req,res) => {\r\n-    try{\r\n-        const {firstName,lastName,email,password,picturePath, friends,location, occupation} = req.body\r\n-    } catch (err){\r\n\\ No newline at end of file\n+export const register = async (req, res) => {\r\n+  try {\r\n+    const {\r\n+      firstName,\r\n+      lastName,\r\n+      email,\r\n+      password,\r\n+      picturePath,\r\n+      friends,\r\n+      location,\r\n+      occupation,\r\n+    } = req.body;\r\n \r\n-    }\r\n-}\n+    const salt \r\n+  } catch (err) {}\r\n+};\r\n"
+                },
+                {
+                    "date": 1691507834536,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,7 @@\n       location,\r\n       occupation,\r\n     } = req.body;\r\n \r\n-    const salt \r\n+    const salt = await bcrypt\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691507839789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,7 +14,7 @@\n       location,\r\n       occupation,\r\n     } = req.body;\r\n \r\n-    const salt = await bcrypt\r\n+    const salt = await bcrypt.genSalt()\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691507859611,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,6 +15,7 @@\n       occupation,\r\n     } = req.body;\r\n \r\n     const salt = await bcrypt.genSalt()\r\n+    const passwordHash = \r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691507867789,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,7 +15,7 @@\n       occupation,\r\n     } = req.body;\r\n \r\n     const salt = await bcrypt.genSalt()\r\n-    const passwordHash = \r\n+    const passwordHash = await bcrypt.hash(password,salt)\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691507889607,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -16,6 +16,8 @@\n     } = req.body;\r\n \r\n     const salt = await bcrypt.genSalt()\r\n     const passwordHash = await bcrypt.hash(password,salt)\r\n+\r\n+    const newUser = new User()\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691507929259,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -17,7 +17,9 @@\n \r\n     const salt = await bcrypt.genSalt()\r\n     const passwordHash = await bcrypt.hash(password,salt)\r\n \r\n-    const newUser = new User()\r\n+    const newUser = new User({\r\n+        \r\n+    })\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691507934359,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,8 +18,15 @@\n     const salt = await bcrypt.genSalt()\r\n     const passwordHash = await bcrypt.hash(password,salt)\r\n \r\n     const newUser = new User({\r\n-        \r\n+        firstName,\r\n+      lastName,\r\n+      email,\r\n+      password,\r\n+      picturePath,\r\n+      friends,\r\n+      location,\r\n+      occupation,\r\n     })\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691507940700,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -18,9 +18,9 @@\n     const salt = await bcrypt.genSalt()\r\n     const passwordHash = await bcrypt.hash(password,salt)\r\n \r\n     const newUser = new User({\r\n-        firstName,\r\n+      firstName,\r\n       lastName,\r\n       email,\r\n       password,\r\n       picturePath,\r\n"
+                },
+                {
+                    "date": 1691507949366,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n     const newUser = new User({\r\n       firstName,\r\n       lastName,\r\n       email,\r\n-      password,\r\n+      password: passwordHash,\r\n       picturePath,\r\n       friends,\r\n       location,\r\n       occupation,\r\n"
+                },
+                {
+                    "date": 1691507959834,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,7 +26,8 @@\n       picturePath,\r\n       friends,\r\n       location,\r\n       occupation,\r\n+      viewedProfile\r\n     })\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691507978896,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,8 @@\n       picturePath,\r\n       friends,\r\n       location,\r\n       occupation,\r\n-      viewedProfile\r\n+      viewedProfile: Math.floor(Math.random())\r\n     })\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691507996018,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,8 @@\n       picturePath,\r\n       friends,\r\n       location,\r\n       occupation,\r\n-      viewedProfile: Math.floor(Math.random())\r\n+      viewedProfile: Math.floor(Math.random() = 10000)\r\n     })\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691508001309,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,8 @@\n       picturePath,\r\n       friends,\r\n       location,\r\n       occupation,\r\n-      viewedProfile: Math.floor(Math.random() = 10000)\r\n+      viewedProfile: Math.floor(Math.random() * 10000)\r\n     })\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691508008385,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -26,8 +26,9 @@\n       picturePath,\r\n       friends,\r\n       location,\r\n       occupation,\r\n-      viewedProfile: Math.floor(Math.random() * 10000)\r\n+      viewedProfile: Math.floor(Math.random() * 10000),\r\n+      imp\r\n     })\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691508013812,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,8 @@\n       friends,\r\n       location,\r\n       occupation,\r\n       viewedProfile: Math.floor(Math.random() * 10000),\r\n-      imp\r\n+      impressions: Math.floor()\r\n     })\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691508022761,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,8 +27,8 @@\n       friends,\r\n       location,\r\n       occupation,\r\n       viewedProfile: Math.floor(Math.random() * 10000),\r\n-      impressions: Math.floor()\r\n+      impressions: Math.floor(Math.random() * 10000)\r\n     })\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691508053019,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,6 +29,7 @@\n       occupation,\r\n       viewedProfile: Math.floor(Math.random() * 10000),\r\n       impressions: Math.floor(Math.random() * 10000)\r\n     })\r\n+    \r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691508062645,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,7 +29,7 @@\n       occupation,\r\n       viewedProfile: Math.floor(Math.random() * 10000),\r\n       impressions: Math.floor(Math.random() * 10000)\r\n     })\r\n-    \r\n+    const savedUser = await new\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691508070768,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -29,7 +29,7 @@\n       occupation,\r\n       viewedProfile: Math.floor(Math.random() * 10000),\r\n       impressions: Math.floor(Math.random() * 10000)\r\n     })\r\n-    const savedUser = await new\r\n+    const savedUser = await newUser.save()\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691508140397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,6 +30,7 @@\n       viewedProfile: Math.floor(Math.random() * 10000),\r\n       impressions: Math.floor(Math.random() * 10000)\r\n     })\r\n     const savedUser = await newUser.save()\r\n+    res.\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691508154725,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -30,7 +30,7 @@\n       viewedProfile: Math.floor(Math.random() * 10000),\r\n       impressions: Math.floor(Math.random() * 10000)\r\n     })\r\n     const savedUser = await newUser.save()\r\n-    res.\r\n+    res.status(201).json(savedUser)\r\n   } catch (err) {}\r\n };\r\n"
+                },
+                {
+                    "date": 1691508214861,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -31,6 +31,8 @@\n       impressions: Math.floor(Math.random() * 10000)\r\n     })\r\n     const savedUser = await newUser.save()\r\n     res.status(201).json(savedUser)\r\n-  } catch (err) {}\r\n+  } catch (err) {\r\n+    \r\n+  }\r\n };\r\n"
+                },
+                {
+                    "date": 1691508241576,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,7 +32,8 @@\n     })\r\n     const savedUser = await newUser.save()\r\n     res.status(201).json(savedUser)\r\n   } catch (err) {\r\n-    \r\n+       \r\n+      \r\n   }\r\n };\r\n"
+                },
+                {
+                    "date": 1691508246956,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,8 +32,8 @@\n     })\r\n     const savedUser = await newUser.save()\r\n     res.status(201).json(savedUser)\r\n   } catch (err) {\r\n-       \r\n+      res.status(500) \r\n       \r\n   }\r\n };\r\n"
+                },
+                {
+                    "date": 1691508253854,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,8 +32,8 @@\n     })\r\n     const savedUser = await newUser.save()\r\n     res.status(201).json(savedUser)\r\n   } catch (err) {\r\n-      res.status(500) \r\n+      res.status(500).json({error}) \r\n       \r\n   }\r\n };\r\n"
+                },
+                {
+                    "date": 1691508260705,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -32,8 +32,8 @@\n     })\r\n     const savedUser = await newUser.save()\r\n     res.status(201).json(savedUser)\r\n   } catch (err) {\r\n-      res.status(500).json({error}) \r\n+      res.status(500).json({error: err.message}) \r\n       \r\n   }\r\n };\r\n"
+                },
+                {
+                    "date": 1691509148779,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -36,4 +36,6 @@\n       res.status(500).json({error: err.message}) \r\n       \r\n   }\r\n };\r\n+\r\n+\r\n"
+                },
+                {
+                    "date": 1691509165131,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -38,4 +38,7 @@\n   }\r\n };\r\n \r\n \r\n+export const login = async (req,res) => {\r\n+  \r\n+}\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509174180,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -39,6 +39,10 @@\n };\r\n \r\n \r\n export const login = async (req,res) => {\r\n-  \r\n+  try{\r\n+\r\n+  }catch(err){\r\n+    \r\n+  }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509191932,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,8 +41,8 @@\n \r\n export const login = async (req,res) => {\r\n   try{\r\n \r\n-  }catch(err){\r\n-    \r\n+  }catch (err){\r\n+    res.status(500).json({error: err..message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509202335,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n \r\n \r\n export const login = async (req,res) => {\r\n   try{\r\n-\r\n+    const \r\n   }catch (err){\r\n     res.status(500).json({error: err..message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509209547,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -40,9 +40,9 @@\n \r\n \r\n export const login = async (req,res) => {\r\n   try{\r\n-    const \r\n+    const {email,password} = req.body\r\n   }catch (err){\r\n     res.status(500).json({error: err..message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509220926,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,7 +42,7 @@\n export const login = async (req,res) => {\r\n   try{\r\n     const {email,password} = req.body\r\n   }catch (err){\r\n-    res.status(500).json({error: err..message})\r\n+    res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509232346,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,8 +41,9 @@\n \r\n export const login = async (req,res) => {\r\n   try{\r\n     const {email,password} = req.body\r\n+    const user = await User.findOne\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509241130,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -41,9 +41,9 @@\n \r\n export const login = async (req,res) => {\r\n   try{\r\n     const {email,password} = req.body\r\n-    const user = await User.findOne\r\n+    const user = await User.findOne({email:email})\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509262230,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -42,8 +42,12 @@\n export const login = async (req,res) => {\r\n   try{\r\n     const {email,password} = req.body\r\n     const user = await User.findOne({email:email})\r\n+\r\n+    if(!user){\r\n+      reru\r\n+    }\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509270071,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     const {email,password} = req.body\r\n     const user = await User.findOne({email:email})\r\n \r\n     if(!user){\r\n-      reru\r\n+      return \r\n     }\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n"
+                },
+                {
+                    "date": 1691509276303,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     const {email,password} = req.body\r\n     const user = await User.findOne({email:email})\r\n \r\n     if(!user){\r\n-      return \r\n+      return res.status\r\n     }\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n"
+                },
+                {
+                    "date": 1691509281683,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     const {email,password} = req.body\r\n     const user = await User.findOne({email:email})\r\n \r\n     if(!user){\r\n-      return res.status\r\n+      return res.status(400).json({})\r\n     }\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n"
+                },
+                {
+                    "date": 1691509289406,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     const {email,password} = req.body\r\n     const user = await User.findOne({email:email})\r\n \r\n     if(!user){\r\n-      return res.status(400).json({})\r\n+      return res.status(400).json({msg:})\r\n     }\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n"
+                },
+                {
+                    "date": 1691509294893,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -44,9 +44,9 @@\n     const {email,password} = req.body\r\n     const user = await User.findOne({email:email})\r\n \r\n     if(!user){\r\n-      return res.status(400).json({msg:})\r\n+      return res.status(400).json({msg: \"User doesn't exist\"})\r\n     }\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n"
+                },
+                {
+                    "date": 1691509483944,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -46,8 +46,10 @@\n \r\n     if(!user){\r\n       return res.status(400).json({msg: \"User doesn't exist\"})\r\n     }\r\n+\r\n+    const isMatch = \r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509492384,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n     if(!user){\r\n       return res.status(400).json({msg: \"User doesn't exist\"})\r\n     }\r\n \r\n-    const isMatch = \r\n+    const isMatch = await bcrypt\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509502164,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -47,9 +47,9 @@\n     if(!user){\r\n       return res.status(400).json({msg: \"User doesn't exist\"})\r\n     }\r\n \r\n-    const isMatch = await bcrypt\r\n+    const isMatch = await bcrypt.compare(password, user.password)\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509530081,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -48,8 +48,10 @@\n       return res.status(400).json({msg: \"User doesn't exist\"})\r\n     }\r\n \r\n     const isMatch = await bcrypt.compare(password, user.password)\r\n+\r\n+    if(\"isMatch\")\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509536869,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -49,9 +49,11 @@\n     }\r\n \r\n     const isMatch = await bcrypt.compare(password, user.password)\r\n \r\n-    if(\"isMatch\")\r\n+    if(!isMatch){\r\n+      \r\n+    }\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509543703,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n \r\n     const isMatch = await bcrypt.compare(password, user.password)\r\n \r\n     if(!isMatch){\r\n-      \r\n+      return \r\n     }\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n"
+                },
+                {
+                    "date": 1691509556273,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n \r\n     const isMatch = await bcrypt.compare(password, user.password)\r\n \r\n     if(!isMatch){\r\n-      return \r\n+      return res.status(400).json({msg: \"User doesn't exist\"})\r\n     }\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n"
+                },
+                {
+                    "date": 1691509564272,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -50,9 +50,9 @@\n \r\n     const isMatch = await bcrypt.compare(password, user.password)\r\n \r\n     if(!isMatch){\r\n-      return res.status(400).json({msg: \"User doesn't exist\"})\r\n+      return res.status(400).json({msg: \"Invalid Password\"})\r\n     }\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n"
+                },
+                {
+                    "date": 1691509599274,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -52,8 +52,10 @@\n \r\n     if(!isMatch){\r\n       return res.status(400).json({msg: \"Invalid Password\"})\r\n     }\r\n+\r\n+    const token = jw\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509607047,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n     if(!isMatch){\r\n       return res.status(400).json({msg: \"Invalid Password\"})\r\n     }\r\n \r\n-    const token = jw\r\n+    const token = jwt.sign({})\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509613099,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n     if(!isMatch){\r\n       return res.status(400).json({msg: \"Invalid Password\"})\r\n     }\r\n \r\n-    const token = jwt.sign({})\r\n+    const token = jwt.sign({id:user._id})\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509771756,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n     if(!isMatch){\r\n       return res.status(400).json({msg: \"Invalid Password\"})\r\n     }\r\n \r\n-    const token = jwt.sign({id:user._id})\r\n+    const token = jwt.sign({id:user._id}, procc)\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509782797,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -53,9 +53,9 @@\n     if(!isMatch){\r\n       return res.status(400).json({msg: \"Invalid Password\"})\r\n     }\r\n \r\n-    const token = jwt.sign({id:user._id}, procc)\r\n+    const token = jwt.sign({id:user._id}, process.env.JWT_SECRET)\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691509945340,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -54,8 +54,10 @@\n       return res.status(400).json({msg: \"Invalid Password\"})\r\n     }\r\n \r\n     const token = jwt.sign({id:user._id}, process.env.JWT_SECRET)\r\n+    delete user.password;\r\n+    res.status(200).json({ token, user });\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n }\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691510786228,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -59,5 +59,5 @@\n     res.status(200).json({ token, user });\r\n   }catch (err){\r\n     res.status(500).json({error: err.message})\r\n   }\r\n-}\n\\ No newline at end of file\n+} \n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1691503699334,
+            "name": "Commit-0",
+            "content": "import bcrypt from 'bcrypt'"
+        }
+    ]
+}

@@ -1,0 +1,22 @@
+{
+    "sourceFile": "client/src/scenes/profilePage/index.jsx",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 1,
+            "patches": [
+                {
+                    "date": 1691671001192,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1692045714805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,11 +1,60 @@\n-import React from 'react'\r\n+import { Box, useMediaQuery } from \"@mui/material\";\r\n+import { useEffect, useState } from \"react\";\r\n+import { useSelector } from \"react-redux\";\r\n+import { useParams } from \"react-router-dom\";\r\n+import Navbar from \"scenes/navbar\";\r\n+import FriendListWidget from \"scenes/widgets/FriendListWidget\";\r\n+import MyPostWidget from \"scenes/widgets/MyPostWidget\";\r\n+import PostsWidget from \"scenes/widgets/PostsWidget\";\r\n+import UserWidget from \"scenes/widgets/UserWidget\";\r\n \r\n-const index = () => {\r\n+const ProfilePage = () => {\r\n+  const [user, setUser] = useState(null);\r\n+  const { userId } = useParams();\r\n+  const token = useSelector((state) => state.token);\r\n+  const isNonMobileScreens = useMediaQuery(\"(min-width:1000px)\");\r\n+\r\n+  const getUser = async () => {\r\n+    const response = await fetch(`http://localhost:3001/users/${userId}`, {\r\n+      method: \"GET\",\r\n+      headers: { Authorization: `Bearer ${token}` },\r\n+    });\r\n+    const data = await response.json();\r\n+    setUser(data);\r\n+  };\r\n+\r\n+  useEffect(() => {\r\n+    getUser();\r\n+  }, []); // eslint-disable-line react-hooks/exhaustive-deps\r\n+\r\n+  if (!user) return null;\r\n+\r\n   return (\r\n-    <div>\r\n-      \r\n-    </div>\r\n-  )\r\n-}\r\n+    <Box>\r\n+      <Navbar />\r\n+      <Box\r\n+        width=\"100%\"\r\n+        padding=\"2rem 6%\"\r\n+        display={isNonMobileScreens ? \"flex\" : \"block\"}\r\n+        gap=\"2rem\"\r\n+        justifyContent=\"center\"\r\n+      >\r\n+        <Box flexBasis={isNonMobileScreens ? \"26%\" : undefined}>\r\n+          <UserWidget userId={userId} picturePath={user.picturePath} />\r\n+          <Box m=\"2rem 0\" />\r\n+          <FriendListWidget userId={userId} />\r\n+        </Box>\r\n+        <Box\r\n+          flexBasis={isNonMobileScreens ? \"42%\" : undefined}\r\n+          mt={isNonMobileScreens ? undefined : \"2rem\"}\r\n+        >\r\n+          <MyPostWidget picturePath={user.picturePath} />\r\n+          <Box m=\"2rem 0\" />\r\n+          <PostsWidget userId={userId} isProfile />\r\n+        </Box>\r\n+      </Box>\r\n+    </Box>\r\n+  );\r\n+};\r\n \r\n-export default index\r\n+export default ProfilePage;\n\\ No newline at end of file\n"
+                }
+            ],
+            "date": 1691671001192,
+            "name": "Commit-0",
+            "content": "import React from 'react'\r\n\r\nconst index = () => {\r\n  return (\r\n    <div>\r\n      \r\n    </div>\r\n  )\r\n}\r\n\r\nexport default index\r\n"
+        }
+    ]
+}

@@ -1,0 +1,194 @@
+{
+    "sourceFile": "client/src/App.js",
+    "activeCommit": 0,
+    "commits": [
+        {
+            "activePatchIndex": 44,
+            "patches": [
+                {
+                    "date": 1691670208136,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n"
+                },
+                {
+                    "date": 1691670222120,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,23 +1,9 @@\n \n-\n function App() {\n   return (\n     <div className=\"App\">\n-      <header className=\"App-header\">\n-        <img src={logo} className=\"App-logo\" alt=\"logo\" />\n-        <p>\n-          Edit <code>src/App.js</code> and save to reload.\n-        </p>\n-        <a\n-          className=\"App-link\"\n-          href=\"https://reactjs.org\"\n-          target=\"_blank\"\n-          rel=\"noopener noreferrer\"\n-        >\n-          Learn React\n-        </a>\n-      </header>\n+      \n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1691671053150,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,8 +1,10 @@\n \n+\n+\n function App() {\n   return (\n-    <div className=\"App\">\n+    <div className=\"app\">\n       \n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1691671058707,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,7 @@\n+import { BrowserRouter } from \"react-router-dom\";\n \n+BrowserRouter\n \n \n function App() {\n   return (\n"
+                },
+                {
+                    "date": 1691671072397,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n-import { BrowserRouter } from \"react-router-dom\";\n+import { BrowserRouter, Navigate, Routes, Route} from \"react-router-dom\";\n \n-BrowserRouter\n \n \n+\n function App() {\n   return (\n     <div className=\"app\">\n       \n"
+                },
+                {
+                    "date": 1691671078886,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,8 @@\n import { BrowserRouter, Navigate, Routes, Route} from \"react-router-dom\";\n \n \n \n-\n function App() {\n   return (\n     <div className=\"app\">\n       \n"
+                },
+                {
+                    "date": 1691671086676,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,5 +1,6 @@\n import { BrowserRouter, Navigate, Routes, Route} from \"react-router-dom\";\n+import homePage from \"scenes/homePage\";\n \n \n \n function App() {\n"
+                },
+                {
+                    "date": 1691671108096,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,9 @@\n import { BrowserRouter, Navigate, Routes, Route} from \"react-router-dom\";\n import homePage from \"scenes/homePage\";\n+login\n \n \n-\n function App() {\n   return (\n     <div className=\"app\">\n       \n"
+                },
+                {
+                    "date": 1691671117807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,9 +1,11 @@\n import { BrowserRouter, Navigate, Routes, Route} from \"react-router-dom\";\n import homePage from \"scenes/homePage\";\n-login\n+import LoginPage from \"scenes/loginPage\";\n+import ProfilePage from \"scenes/profilePage\";\n \n \n+\n function App() {\n   return (\n     <div className=\"app\">\n       \n"
+                },
+                {
+                    "date": 1691671128570,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,12 +1,15 @@\n+import { useState } from \"react\";\n import { BrowserRouter, Navigate, Routes, Route} from \"react-router-dom\";\n import homePage from \"scenes/homePage\";\n import LoginPage from \"scenes/loginPage\";\n import ProfilePage from \"scenes/profilePage\";\n \n \n \n function App() {\n+\n+  const mode = useState\n   return (\n     <div className=\"app\">\n       \n     </div>\n"
+                },
+                {
+                    "date": 1691671162199,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \n \n function App() {\n \n-  const mode = useState\n+  const mode = useState \n   return (\n     <div className=\"app\">\n       \n     </div>\n"
+                },
+                {
+                    "date": 1691671480109,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,9 +7,9 @@\n \n \n function App() {\n \n-  const mode = useState \n+  \n   return (\n     <div className=\"app\">\n       \n     </div>\n"
+                },
+                {
+                    "date": 1691671487805,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,11 @@\n \n   \n   return (\n     <div className=\"app\">\n+      <BrowserRouter>\n       \n+      </BrowserRouter>\n     </div>\n   );\n }\n \n"
+                },
+                {
+                    "date": 1691671498108,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,9 +11,11 @@\n   \n   return (\n     <div className=\"app\">\n       <BrowserRouter>\n-      \n+        <Routes>\n+            <Route path=\"\"></Route>\n+        </Routes>\n       </BrowserRouter>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1691671508807,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -12,9 +12,9 @@\n   return (\n     <div className=\"app\">\n       <BrowserRouter>\n         <Routes>\n-            <Route path=\"\"></Route>\n+            <Route path=\"/\" element={<LoginPage></LoginPage>}></Route>\n         </Routes>\n       </BrowserRouter>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1691671547500,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,8 +13,9 @@\n     <div className=\"app\">\n       <BrowserRouter>\n         <Routes>\n             <Route path=\"/\" element={<LoginPage></LoginPage>}></Route>\n+            <Route path=\"\"></Route>\n         </Routes>\n       </BrowserRouter>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1691671554185,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     <div className=\"app\">\n       <BrowserRouter>\n         <Routes>\n             <Route path=\"/\" element={<LoginPage></LoginPage>}></Route>\n-            <Route path=\"\"></Route>\n+            <Route path=\"/home\" ></Route>\n         </Routes>\n       </BrowserRouter>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1691671561059,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -13,9 +13,9 @@\n     <div className=\"app\">\n       <BrowserRouter>\n         <Routes>\n             <Route path=\"/\" element={<LoginPage></LoginPage>}></Route>\n-            <Route path=\"/home\" ></Route>\n+            <Route path=\"/home\" element={<Home/>}></Route>\n         </Routes>\n       </BrowserRouter>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1691671568528,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,21 +1,18 @@\n import { useState } from \"react\";\n-import { BrowserRouter, Navigate, Routes, Route} from \"react-router-dom\";\n+import { BrowserRouter, Navigate, Routes, Route } from \"react-router-dom\";\n import homePage from \"scenes/homePage\";\n import LoginPage from \"scenes/loginPage\";\n import ProfilePage from \"scenes/profilePage\";\n \n-\n-\n function App() {\n-\n-  \n   return (\n     <div className=\"app\">\n       <BrowserRouter>\n         <Routes>\n-            <Route path=\"/\" element={<LoginPage></LoginPage>}></Route>\n-            <Route path=\"/home\" element={<Home/>}></Route>\n+          <Route path=\"/\" element={<LoginPage></LoginPage>}></Route>\n+          <Route path=\"/home\" element={<Home />}></Route>\n+          \n         </Routes>\n       </BrowserRouter>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1691671576398,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n       <BrowserRouter>\n         <Routes>\n           <Route path=\"/\" element={<LoginPage></LoginPage>}></Route>\n           <Route path=\"/home\" element={<Home />}></Route>\n-          \n+          <Route path=\"\"></Route>\n         </Routes>\n       </BrowserRouter>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1691671581467,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n       <BrowserRouter>\n         <Routes>\n           <Route path=\"/\" element={<LoginPage></LoginPage>}></Route>\n           <Route path=\"/home\" element={<Home />}></Route>\n-          <Route path=\"\"></Route>\n+          <Route path=\"/pr\"></Route>\n         </Routes>\n       </BrowserRouter>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1691671587248,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n       <BrowserRouter>\n         <Routes>\n           <Route path=\"/\" element={<LoginPage></LoginPage>}></Route>\n           <Route path=\"/home\" element={<Home />}></Route>\n-          <Route path=\"/pr\"></Route>\n+          <Route path=\"/profile/:userId\"></Route>\n         </Routes>\n       </BrowserRouter>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1691671594546,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -10,9 +10,9 @@\n       <BrowserRouter>\n         <Routes>\n           <Route path=\"/\" element={<LoginPage></LoginPage>}></Route>\n           <Route path=\"/home\" element={<Home />}></Route>\n-          <Route path=\"/profile/:userId\"></Route>\n+          <Route path=\"/profile/:userId\" element={<Profi}></Route>\n         </Routes>\n       </BrowserRouter>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1691671602983,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -8,11 +8,11 @@\n   return (\n     <div className=\"app\">\n       <BrowserRouter>\n         <Routes>\n-          <Route path=\"/\" element={<LoginPage></LoginPage>}></Route>\n+          <Route path=\"/\" element={<LoginPage>}></Route>\n           <Route path=\"/home\" element={<Home />}></Route>\n-          <Route path=\"/profile/:userId\" element={<Profi}></Route>\n+          <Route path=\"/profile/:userId\" element={<ProfilePage/>}></Route>\n         </Routes>\n       </BrowserRouter>\n     </div>\n   );\n"
+                },
+                {
+                    "date": 1691683386671,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -2,15 +2,16 @@\n import { BrowserRouter, Navigate, Routes, Route } from \"react-router-dom\";\n import homePage from \"scenes/homePage\";\n import LoginPage from \"scenes/loginPage\";\n import ProfilePage from \"scenes/profilePage\";\n+import { useMemo } from \"react\";\n \n function App() {\n   return (\n     <div className=\"app\">\n       <BrowserRouter>\n         <Routes>\n-          <Route path=\"/\" element={<LoginPage>}></Route>\n+          <Route path=\"/\" element={<LoginPage/>}></Route>\n           <Route path=\"/home\" element={<Home />}></Route>\n           <Route path=\"/profile/:userId\" element={<ProfilePage/>}></Route>\n         </Routes>\n       </BrowserRouter>\n"
+                },
+                {
+                    "date": 1691683394960,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -3,9 +3,11 @@\n import homePage from \"scenes/homePage\";\n import LoginPage from \"scenes/loginPage\";\n import ProfilePage from \"scenes/profilePage\";\n import { useMemo } from \"react\";\n+import { useSelector } from \"react-redux\";\n \n+\n function App() {\n   return (\n     <div className=\"app\">\n       <BrowserRouter>\n"
+                },
+                {
+                    "date": 1691683408306,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -4,8 +4,10 @@\n import LoginPage from \"scenes/loginPage\";\n import ProfilePage from \"scenes/profilePage\";\n import { useMemo } from \"react\";\n import { useSelector } from \"react-redux\";\n+import { CssBaseline } from \"@mui/material\";\n+import { ThemeProvider } from \"@emotion/react\";\n \n \n function App() {\n   return (\n"
+                },
+                {
+                    "date": 1691683414294,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -6,8 +6,9 @@\n import { useMemo } from \"react\";\n import { useSelector } from \"react-redux\";\n import { CssBaseline } from \"@mui/material\";\n import { ThemeProvider } from \"@emotion/react\";\n+import { createTheme } from \"@mui/system\";\n \n \n function App() {\n   return (\n"
+                },
+                {
+                    "date": 1691683424691,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -7,8 +7,9 @@\n import { useSelector } from \"react-redux\";\n import { CssBaseline } from \"@mui/material\";\n import { ThemeProvider } from \"@emotion/react\";\n import { createTheme } from \"@mui/system\";\n+import { themeSettings } from \"theme\";\n \n \n function App() {\n   return (\n"
+                },
+                {
+                    "date": 1691683443010,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -11,8 +11,12 @@\n import { themeSettings } from \"theme\";\n \n \n function App() {\n+\n+  const mode = useSelector((state) => state.mode);\n+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);\n+  const isAuth = Boolean(useSelector((state) => state.token));\n   return (\n     <div className=\"app\">\n       <BrowserRouter>\n         <Routes>\n"
+                },
+                {
+                    "date": 1691683527617,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -15,11 +15,14 @@\n \n   const mode = useSelector((state) => state.mode);\n   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);\n   const isAuth = Boolean(useSelector((state) => state.token));\n+\n+\n   return (\n     <div className=\"app\">\n       <BrowserRouter>\n+      <ThemeProvider\n         <Routes>\n           <Route path=\"/\" element={<LoginPage/>}></Route>\n           <Route path=\"/home\" element={<Home />}></Route>\n           <Route path=\"/profile/:userId\" element={<ProfilePage/>}></Route>\n"
+                },
+                {
+                    "date": 1691683535215,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,9 @@\n \n   return (\n     <div className=\"app\">\n       <BrowserRouter>\n-      <ThemeProvider\n+      <ThemeProvider>\n         <Routes>\n           <Route path=\"/\" element={<LoginPage/>}></Route>\n           <Route path=\"/home\" element={<Home />}></Route>\n           <Route path=\"/profile/:userId\" element={<ProfilePage/>}></Route>\n"
+                },
+                {
+                    "date": 1691683542672,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,14 +20,15 @@\n \n   return (\n     <div className=\"app\">\n       <BrowserRouter>\n-      <ThemeProvider>\n+      <ThemeProvider theme={}>\n         <Routes>\n           <Route path=\"/\" element={<LoginPage/>}></Route>\n           <Route path=\"/home\" element={<Home />}></Route>\n           <Route path=\"/profile/:userId\" element={<ProfilePage/>}></Route>\n         </Routes>\n+        </ThemeProvider>\n       </BrowserRouter>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1691683559292,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -20,9 +20,10 @@\n \n   return (\n     <div className=\"app\">\n       <BrowserRouter>\n-      <ThemeProvider theme={}>\n+      <ThemeProvider theme={theme}>\n+        \n         <Routes>\n           <Route path=\"/\" element={<LoginPage/>}></Route>\n           <Route path=\"/home\" element={<Home />}></Route>\n           <Route path=\"/profile/:userId\" element={<ProfilePage/>}></Route>\n"
+                },
+                {
+                    "date": 1691683565123,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n   return (\n     <div className=\"app\">\n       <BrowserRouter>\n       <ThemeProvider theme={theme}>\n-        \n+        <CssBaseline7></CssBaseline7>\n         <Routes>\n           <Route path=\"/\" element={<LoginPage/>}></Route>\n           <Route path=\"/home\" element={<Home />}></Route>\n           <Route path=\"/profile/:userId\" element={<ProfilePage/>}></Route>\n"
+                },
+                {
+                    "date": 1691683620162,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -14,16 +14,16 @@\n function App() {\n \n   const mode = useSelector((state) => state.mode);\n   const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);\n-  const isAuth = Boolean(useSelector((state) => state.token));\n+  // const isAuth = Boolean(useSelector((state) => state.token));\n \n \n   return (\n     <div className=\"app\">\n       <BrowserRouter>\n       <ThemeProvider theme={theme}>\n-        <CssBaseline7></CssBaseline7>\n+        <CssBaseline/>\n         <Routes>\n           <Route path=\"/\" element={<LoginPage/>}></Route>\n           <Route path=\"/home\" element={<Home />}></Route>\n           <Route path=\"/profile/:userId\" element={<ProfilePage/>}></Route>\n"
+                },
+                {
+                    "date": 1691683768424,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n       <ThemeProvider theme={theme}>\n         <CssBaseline/>\n         <Routes>\n           <Route path=\"/\" element={<LoginPage/>}></Route>\n-          <Route path=\"/home\" element={<Home />}></Route>\n+          <Route path=\"/home\" element={<homePage />}></Route>\n           <Route path=\"/profile/:userId\" element={<ProfilePage/>}></Route>\n         </Routes>\n         </ThemeProvider>\n       </BrowserRouter>\n"
+                },
+                {
+                    "date": 1691683822213,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,7 +1,7 @@\n import { useState } from \"react\";\n import { BrowserRouter, Navigate, Routes, Route } from \"react-router-dom\";\n-import homePage from \"scenes/homePage\";\n+import HomePage from \"scenes/homePage\";\n import LoginPage from \"scenes/loginPage\";\n import ProfilePage from \"scenes/profilePage\";\n import { useMemo } from \"react\";\n import { useSelector } from \"react-redux\";\n"
+                },
+                {
+                    "date": 1691683827293,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -24,9 +24,9 @@\n       <ThemeProvider theme={theme}>\n         <CssBaseline/>\n         <Routes>\n           <Route path=\"/\" element={<LoginPage/>}></Route>\n-          <Route path=\"/home\" element={<homePage />}></Route>\n+          <Route path=\"/home\" element={<HomePage />}></Route>\n           <Route path=\"/profile/:userId\" element={<ProfilePage/>}></Route>\n         </Routes>\n         </ThemeProvider>\n       </BrowserRouter>\n"
+                },
+                {
+                    "date": 1691683891874,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -27,9 +27,9 @@\n           <Route path=\"/\" element={<LoginPage/>}></Route>\n           <Route path=\"/home\" element={<HomePage />}></Route>\n           <Route path=\"/profile/:userId\" element={<ProfilePage/>}></Route>\n         </Routes>\n-        </ThemeProvider>\n+   \n       </BrowserRouter>\n     </div>\n   );\n }\n"
+                },
+                {
+                    "date": 1691684009269,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,37 +0,0 @@\n-import { useState } from \"react\";\n-import { BrowserRouter, Navigate, Routes, Route } from \"react-router-dom\";\n-import HomePage from \"scenes/homePage\";\n-import LoginPage from \"scenes/loginPage\";\n-import ProfilePage from \"scenes/profilePage\";\n-import { useMemo } from \"react\";\n-import { useSelector } from \"react-redux\";\n-import { CssBaseline } from \"@mui/material\";\n-import { ThemeProvider } from \"@emotion/react\";\n-import { createTheme } from \"@mui/system\";\n-import { themeSettings } from \"theme\";\n-\n-\n-function App() {\n-\n-  const mode = useSelector((state) => state.mode);\n-  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);\n-  // const isAuth = Boolean(useSelector((state) => state.token));\n-\n-\n-  return (\n-    <div className=\"app\">\n-      <BrowserRouter>\n-      <ThemeProvider theme={theme}>\n-        <CssBaseline/>\n-        <Routes>\n-          <Route path=\"/\" element={<LoginPage/>}></Route>\n-          <Route path=\"/home\" element={<HomePage />}></Route>\n-          <Route path=\"/profile/:userId\" element={<ProfilePage/>}></Route>\n-        </Routes>\n-   \n-      </BrowserRouter>\n-    </div>\n-  );\n-}\n-\n-export default App;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691684017518,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -1,1 +1,38 @@\n+import { BrowserRouter, Navigate, Routes, Route } from \"react-router-dom\";\n+import HomePage from \"scenes/homePage\";\n+import LoginPage from \"scenes/loginPage\";\n+import ProfilePage from \"scenes/profilePage\";\n+import { useMemo } from \"react\";\n+import { useSelector } from \"react-redux\";\n+import { CssBaseline, ThemeProvider } from \"@mui/material\";\n+import { createTheme } from \"@mui/material/styles\";\n+import { themeSettings } from \"./theme\";\n \n+function App() {\n+  const mode = useSelector((state) => state.mode);\n+  const theme = useMemo(() => createTheme(themeSettings(mode)), [mode]);\n+  const isAuth = Boolean(useSelector((state) => state.token));\n+\n+  return (\n+    <div className=\"app\">\n+      <BrowserRouter>\n+        <ThemeProvider theme={theme}>\n+          <CssBaseline />\n+          <Routes>\n+            <Route path=\"/\" element={<LoginPage />} />\n+            <Route\n+              path=\"/home\"\n+              element={isAuth ? <HomePage /> : <Navigate to=\"/\" />}\n+            />\n+            <Route\n+              path=\"/profile/:userId\"\n+              element={isAuth ? <ProfilePage /> : <Navigate to=\"/\" />}\n+            />\n+          </Routes>\n+        </ThemeProvider>\n+      </BrowserRouter>\n+    </div>\n+  );\n+}\n+\n+export default App;\n\\ No newline at end of file\n"
+                },
+                {
+                    "date": 1691688513496,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n           <Routes>\n             <Route path=\"/\" element={<LoginPage />} />\n             <Route\n               path=\"/home\"\n-              element={isAuth ? <HomePage /> : <Navigate to=\"/\" />}\n+              element={isAuth ? <HomePage /> />}\n             />\n             <Route\n               path=\"/profile/:userId\"\n               element={isAuth ? <ProfilePage /> : <Navigate to=\"/\" />}\n"
+                },
+                {
+                    "date": 1691688519442,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n           <Routes>\n             <Route path=\"/\" element={<LoginPage />} />\n             <Route\n               path=\"/home\"\n-              element={isAuth ? <HomePage /> />}\n+              element={<HomePage /> }\n             />\n             <Route\n               path=\"/profile/:userId\"\n               element={isAuth ? <ProfilePage /> : <Navigate to=\"/\" />}\n"
+                },
+                {
+                    "date": 1691688530449,
+                    "content": "Index: \n===================================================================\n--- \n+++ \n@@ -21,9 +21,9 @@\n           <Routes>\n             <Route path=\"/\" element={<LoginPage />} />\n             <Route\n               path=\"/home\"\n-              element={<HomePage /> }\n+              element={isAuth ? <HomePage /> : <Navigate to=\"/\" />}\n             />\n             <Route\n               path=\"/profile/:userId\"\n               element={isAuth ? <ProfilePage /> : <Navigate to=\"/\" />}\n"
+                }
+            ],
+            "date": 1691670208136,
+            "name": "Commit-0",
+            "content": "\n\nfunction App() {\n  return (\n    <div className=\"App\">\n      <header className=\"App-header\">\n        <img src={logo} className=\"App-logo\" alt=\"logo\" />\n        <p>\n          Edit <code>src/App.js</code> and save to reload.\n        </p>\n        <a\n          className=\"App-link\"\n          href=\"https://reactjs.org\"\n          target=\"_blank\"\n          rel=\"noopener noreferrer\"\n        >\n          Learn React\n        </a>\n      </header>\n    </div>\n  );\n}\n\nexport default App;\n"
+        }
+    ]
+}
